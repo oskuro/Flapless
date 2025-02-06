@@ -15,8 +15,15 @@ public class FlyingState : PlayerState
         }
     }
 
+    public override void FixedUpdate()
+    {
+        
+    }
+
     public override void Exit()
     {
         // Cleanup if needed
     }
+
+    
 }
