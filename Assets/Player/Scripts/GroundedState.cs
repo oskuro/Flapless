@@ -21,6 +21,9 @@ public class GroundedState : PlayerState
                 player.Rb2D.AddForce(Vector2.up * player.JumpForce, ForceMode2D.Impulse);
             }
         }
+
+
+ 
     }
 
     public override void FixedUpdate()
@@ -38,6 +41,9 @@ public class GroundedState : PlayerState
         Vector2 clampedVelocity = player.Rb2D.linearVelocity;
         clampedVelocity.x = Mathf.Clamp(clampedVelocity.x, -player.PlayerRunSpeed, player.PlayerRunSpeed);
         player.Rb2D.linearVelocity = clampedVelocity;
+
+        var runSpeed = Mathf.Clamp(Mathf.Abs(movement), 0f, 1f);
+        player.PlayerAnimator.SetFloat("RunSpeed", runSpeed);
     }
 
 

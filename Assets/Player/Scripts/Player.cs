@@ -67,6 +67,9 @@ public class Player : MonoBehaviour
 
         GetPlayerInput();
 
+;
+
+        // Flip sprite
         if(MoveInput != 0)
             _spriteRenderer.flipX = MoveInput < 0;
 
