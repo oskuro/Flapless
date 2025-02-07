@@ -9,9 +9,9 @@ public class FlyingState : PlayerState
 
     public override void Update()
     {
-        if (player.IsGrounded)
+        if (player.IsGrounded && player.BalloonCount == 0)
         {
-            player.ChangeState(new GroundedState(player));
+            player.ChangeState(player.GroundedState);
         }
     }
 

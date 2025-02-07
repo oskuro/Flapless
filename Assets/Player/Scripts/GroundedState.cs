@@ -10,20 +10,28 @@ public class GroundedState : PlayerState
 
    public override void Update()
     {
+        if (!player.IsGrounded)
+        {
+            if (player.BalloonCount > 0) 
+            {
+                player.ChangeState(player.FlyingState);
+                return;
+            } else 
+            {
+                player.PlayerAnimator.SetBool("Jumping", true);
+            }
+        }
+            
         if (player.IsJumping)
         {
-            if (player.BalloonCount > 0)
-            {
-                player.ChangeState(new FlyingState(player));
-            }
-            else if (player.IsGrounded)
+            if (player.IsGrounded)
             {
                 player.Rb2D.AddForce(Vector2.up * player.JumpForce, ForceMode2D.Impulse);
+                player.PlayerAnimator.SetBool("Jumping", true);
             }
         }
 
-
- 
+        
     }
 
     public override void FixedUpdate()
@@ -42,16 +50,8 @@ public class GroundedState : PlayerState
         clampedVelocity.x = Mathf.Clamp(clampedVelocity.x, -player.PlayerRunSpeed, player.PlayerRunSpeed);
         player.Rb2D.linearVelocity = clampedVelocity;
 
-        var normalizedSpeed = speedDiff / targetSpeed;
-        var runSpeed = Mathf.Clamp(Mathf.Abs(normalizedSpeed), 0f, 1f);
-        if(Mathf.Abs(player.Rb2D.linearVelocity.x) < 0.00005f)
-            player.PlayerAnimator.SetFloat("runspeed", 0f);
-        else 
-        {
-            player.PlayerAnimator.SetFloat("runspeed", 1f);
-            Debug.Log("1");
-        }
-
+        var runSpeed = Mathf.Clamp(Mathf.Abs(player.Rb2D.linearVelocity.x), 0f, 1f);
+        player.PlayerAnimator.SetFloat("runspeed", runSpeed);
     }
 
 

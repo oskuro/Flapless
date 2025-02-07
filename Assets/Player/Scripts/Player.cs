@@ -22,7 +22,9 @@ public class Player : MonoBehaviour
     public float GroundDeceleration = 50f;
 
     // The rest
-    private PlayerState _currentState;
+    public PlayerState _currentState;
+    public PlayerState GroundedState { get; private set; }
+    public PlayerState FlyingState { get; private set; }
     InputAction _moveAction;
     InputAction _jumpAction;
     private SpriteRenderer _spriteRenderer;
@@ -30,6 +32,12 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask _groundLayer;
 
     float _rayDistance = 1f;
+
+    void Awake() 
+    {
+        GroundedState = new GroundedState(this);
+        FlyingState = new FlyingState(this);
+    }
     private void Start()
     {
         InitClassVariables();
@@ -50,7 +58,7 @@ public class Player : MonoBehaviour
         {
             var playerHeight = collider.bounds.size.y;
             var offset = collider.offset.y;
-            _rayDistance = playerHeight / 2f + 0.1f - offset;
+            _rayDistance = playerHeight / 2f + 0.2f - offset;
         }
 
         // Set our Rigidbody so that our states can move the player
@@ -64,10 +72,10 @@ public class Player : MonoBehaviour
     private void Update()
     {
         CheckGrounded();
+        PlayerAnimator.SetBool("IsGrounded", IsGrounded);
+        PlayerAnimator.SetBool("Jumping", !IsGrounded);
 
         GetPlayerInput();
-
-;
 
         // Flip sprite
         if(MoveInput != 0)
