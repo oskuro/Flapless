@@ -42,8 +42,16 @@ public class GroundedState : PlayerState
         clampedVelocity.x = Mathf.Clamp(clampedVelocity.x, -player.PlayerRunSpeed, player.PlayerRunSpeed);
         player.Rb2D.linearVelocity = clampedVelocity;
 
-        var runSpeed = Mathf.Clamp(Mathf.Abs(movement), 0f, 1f);
-        player.PlayerAnimator.SetFloat("RunSpeed", runSpeed);
+        var normalizedSpeed = speedDiff / targetSpeed;
+        var runSpeed = Mathf.Clamp(Mathf.Abs(normalizedSpeed), 0f, 1f);
+        if(Mathf.Abs(player.Rb2D.linearVelocity.x) < 0.00005f)
+            player.PlayerAnimator.SetFloat("runspeed", 0f);
+        else 
+        {
+            player.PlayerAnimator.SetFloat("runspeed", 1f);
+            Debug.Log("1");
+        }
+
     }
 
 
