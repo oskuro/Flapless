@@ -1,62 +1,65 @@
 using UnityEngine;
 public class GroundedState : PlayerState
 {
+    private Rigidbody2D Rb2D => player.Rb2D; // uwu, property to access Rigidbody2D
+
     public GroundedState(Player player) : base(player) { }
 
     public override void Enter()
     {
-        // Set animation, reset jump count, etc.
+        player.Jumped += Jump;
     }
 
-   public override void Update()
+    public override void Update()
     {
-        if (!player.IsGrounded)
+         if (!player.IsGrounded && player.BalloonCount > 0) 
         {
-            if (player.BalloonCount > 0) 
-            {
-                player.ChangeState(player.FlyingState);
-                return;
-            } else 
-            {
-                player.PlayerAnimator.SetBool("Jumping", true);
-            }
+            player.ChangeState(player.FlyingState);
         }
-            
-        if (player.IsJumping)
-        {
-            if (player.IsGrounded)
-            {
-                player.Rb2D.AddForce(Vector2.up * player.JumpForce, ForceMode2D.Impulse);
-                player.PlayerAnimator.SetBool("Jumping", true);
-            }
-        }
+    }
 
-        
+    public void Jump()
+    {
+        if (player.IsGrounded)
+        {
+            Rb2D.AddForce(Vector2.up * player.JumpForce, ForceMode2D.Impulse);
+        }
+        player.PlayerAnimator.SetBool("Jumping", true);
     }
 
     public override void FixedUpdate()
     {
+        int layerMask = LayerMask.GetMask("Ground"); 
+        Vector2 boxSize = new Vector2(0.5f, 0.1f);
+        Collider2D hit = Physics2D.OverlapBox(player.transform.position + Vector3.right * player.MoveInput * 0.5f, boxSize, 0f, layerMask);
+        if (hit != null)
+        {
+            if(player.Debugging)
+                Debug.Log("Can't move");
+            return; 
+        }
+
         // Direct velocity control for more precise movement
         float targetSpeed = player.MoveInput * player.PlayerRunSpeed;
-        float speedDiff = targetSpeed - player.Rb2D.linearVelocity.x;
+        float speedDiff = targetSpeed - Rb2D.linearVelocity.x;
         float acceleration = (Mathf.Abs(targetSpeed) > 0.01f) ? player.GroundAcceleration : player.GroundDeceleration;
         
         // Apply acceleration to reach target speed
         float movement = Mathf.Pow(Mathf.Abs(speedDiff) * acceleration, 0.96f) * Mathf.Sign(speedDiff);
-        player.Rb2D.AddForce(movement * Vector2.right, ForceMode2D.Force);
+        Rb2D.AddForce(movement * Vector2.right, ForceMode2D.Force);
 
         // Clamp horizontal speed
-        Vector2 clampedVelocity = player.Rb2D.linearVelocity;
+        Vector2 clampedVelocity = Rb2D.linearVelocity;
         clampedVelocity.x = Mathf.Clamp(clampedVelocity.x, -player.PlayerRunSpeed, player.PlayerRunSpeed);
-        player.Rb2D.linearVelocity = clampedVelocity;
+        Rb2D.linearVelocity = clampedVelocity;
 
-        var runSpeed = Mathf.Clamp(Mathf.Abs(player.Rb2D.linearVelocity.x), 0f, 1f);
+        var runSpeed = Mathf.Clamp(Mathf.Abs(Rb2D.linearVelocity.x), 0f, 1f);
         player.PlayerAnimator.SetFloat("runspeed", runSpeed);
     }
 
 
     public override void Exit()
     {
-        // Cleanup if needed
+         player.Jumped -= Jump;
     }
 }

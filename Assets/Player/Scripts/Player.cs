@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,14 +13,27 @@ public class Player : MonoBehaviour
     public bool IsGrounded { get; private set; }
     public bool IsJumping { get; private set; }
 
+    public bool Debugging = false;
+
     // Variables related to ground movement
     [Header("Grounded Movement")]
     [SerializeField] private float _playerRunSpeed = 5f;
     public float PlayerRunSpeed => _playerRunSpeed;
-    [SerializeField] private float _jumpForce = 100f;
+    [SerializeField] private float _jumpForce = 4;
     public float JumpForce => _jumpForce;
     public float GroundAcceleration = 70f;  
     public float GroundDeceleration = 50f;
+    public Action Jumped; 
+
+    // Flying goes here
+    [Header("Flying Movement")]
+    [SerializeField] private float _flyingForce = 5f;
+    public float FlyingForce => _flyingForce;
+    [SerializeField] private float _flyingSpeed = 5f;
+    public float FlyingSpeed => _flyingSpeed;
+    public float FlyingAcceleration = 35f;  
+    public float FlyingDeceleration = 20f;
+    public float FlyingDrag = 0.2f;
 
     // The rest
     public PlayerState _currentState;
@@ -32,18 +46,22 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask _groundLayer;
 
     float _rayDistance = 1f;
+    internal float MaxVelocityChange = 0.2f;
 
     void Awake() 
     {
         GroundedState = new GroundedState(this);
         FlyingState = new FlyingState(this);
     }
+
     private void Start()
     {
         InitClassVariables();
 
         // Change to our default state
-        ChangeState(new GroundedState(this));
+        if (BalloonCount > 0) { ChangeState(new FlyingState(this)); }
+        else { ChangeState(new GroundedState(this)); }
+        
     }
 
     private void InitClassVariables()
@@ -84,11 +102,17 @@ public class Player : MonoBehaviour
         _currentState?.Update();
     }
 
+    
+
     private void GetPlayerInput()
     {
         // Get player input values
         MoveInput = _moveAction.ReadValue<float>();
-        IsJumping = _jumpAction.WasPerformedThisFrame();
+        IsJumping = _jumpAction.IsPressed();
+        if(_jumpAction.WasPressedThisFrame()) 
+        {
+            Jumped?.Invoke();
+        }
     }
 
     private void CheckGrounded()
@@ -103,13 +127,41 @@ public class Player : MonoBehaviour
 
     public void ChangeState(PlayerState newState)
     {
+        if(Debugging)
+            Debug.Log("New state: " + newState);
         _currentState?.Exit();
         _currentState = newState;
         _currentState.Enter();
     }
 
+    void OnCollisionEnter2D(Collision2D collision) 
+    {  
+        if(Debugging) 
+        {
+            Debug.Log("Collision: " + collision.gameObject.name);
+        } 
+    } 
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(Debugging) 
+        {
+            Debug.Log("Trigger: " + collider.gameObject.name);
+        }
+
+        GameObject.Destroy(collider.gameObject);
+        BalloonCount++;
+    }
+
     void OnDrawGizmos() 
     {
+        if(!Debugging)
+            return;
+
         Gizmos.DrawRay(transform.position, Vector2.down * _rayDistance); 
+        Gizmos.color = Color.red; 
+        Vector2 boxSize = new Vector2(0.5f, 0.5f); 
+        Gizmos.DrawWireCube(transform.position + Vector3.right * MoveInput * 0.5f, boxSize); 
     }
+
 }
