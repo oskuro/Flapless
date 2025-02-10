@@ -1,7 +1,7 @@
 using UnityEngine;
 public class GroundedState : PlayerState
 {
-    private Rigidbody2D Rb2D => player.Rb2D; // uwu, property to access Rigidbody2D
+    private Rigidbody2D Rb2D => player.Rb2D;
 
     public GroundedState(Player player) : base(player) { }
 
@@ -30,8 +30,7 @@ public class GroundedState : PlayerState
     public override void FixedUpdate()
     {
         int layerMask = LayerMask.GetMask("Ground"); 
-        Vector2 boxSize = new Vector2(0.5f, 0.1f);
-        Collider2D hit = Physics2D.OverlapBox(player.transform.position + Vector3.right * player.MoveInput * 0.5f, boxSize, 0f, layerMask);
+        Collider2D hit = Physics2D.OverlapBox(player.transform.position + Vector3.right * player.MoveInput * 0.5f, player.MoveCheck, 0f, layerMask);
         if (hit != null)
         {
             if(player.Debugging)

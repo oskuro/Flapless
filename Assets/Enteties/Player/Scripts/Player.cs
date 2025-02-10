@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     public float GroundAcceleration = 70f;  
     public float GroundDeceleration = 50f;
     public Action Jumped; 
+    float _rayDistance = 1f;
+    [SerializeField] Vector2 _groundCheckSize;
 
     // Flying goes here
     [Header("Flying Movement")]
@@ -34,7 +36,9 @@ public class Player : MonoBehaviour
     public float FlyingAcceleration = 35f;  
     public float FlyingDeceleration = 20f;
     public float FlyingDrag = 0.2f;
+    public float VerticalVelocityClamp;
 
+    
     // The rest
     public PlayerState _currentState;
     public PlayerState GroundedState { get; private set; }
@@ -42,10 +46,10 @@ public class Player : MonoBehaviour
     InputAction _moveAction;
     InputAction _jumpAction;
     private SpriteRenderer _spriteRenderer;
-
+    
+    [Header("General")]
+    public Vector2 MoveCheck;
     [SerializeField] LayerMask _groundLayer;
-
-    float _rayDistance = 1f;
     internal float MaxVelocityChange = 0.2f;
 
     void Awake() 
@@ -76,7 +80,7 @@ public class Player : MonoBehaviour
         {
             var playerHeight = collider.bounds.size.y;
             var offset = collider.offset.y;
-            _rayDistance = playerHeight / 2f + 0.2f - offset;
+            _rayDistance = playerHeight / 2f - offset;
         }
 
         // Set our Rigidbody so that our states can move the player
@@ -117,7 +121,7 @@ public class Player : MonoBehaviour
 
     private void CheckGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, _rayDistance, _groundLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, _groundCheckSize, 0f, Vector2.down, _rayDistance, _groundLayer);
         IsGrounded = hit.collider != null;
     }
 
@@ -157,11 +161,9 @@ public class Player : MonoBehaviour
     {
         if(!Debugging)
             return;
-
-        Gizmos.DrawRay(transform.position, Vector2.down * _rayDistance); 
+        Gizmos.DrawWireCube(transform.position + (Vector3.down * _rayDistance), (Vector3) _groundCheckSize);
         Gizmos.color = Color.red; 
-        Vector2 boxSize = new Vector2(0.5f, 0.5f); 
-        Gizmos.DrawWireCube(transform.position + Vector3.right * MoveInput * 0.5f, boxSize); 
+        Gizmos.DrawWireCube(transform.position + Vector3.right * MoveInput * 0.5f, MoveCheck); 
     }
 
 }

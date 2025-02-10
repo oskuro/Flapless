@@ -1,7 +1,7 @@
 using UnityEngine;
 public class FlyingState : PlayerState
 {
-    private Rigidbody2D Rb2D => player.Rb2D; // uwu, property to access Rigidbody2D
+    private Rigidbody2D Rb2D => player.Rb2D;
     public FlyingState(Player player) : base(player) { }
 
     public override void Enter()
@@ -24,10 +24,9 @@ public class FlyingState : PlayerState
         Vector2 clampedVelocity = Rb2D.linearVelocity;
         if (player.IsJumping)
         {
-            // Add upward force to make the character fly
             Rb2D.AddForce(Vector2.up * player.FlyingForce, ForceMode2D.Force);
-            // Clamp Y
-            clampedVelocity.y = Mathf.Clamp(clampedVelocity.y, -player.FlyingForce, player.FlyingForce);
+            var vertClamp = player.VerticalVelocityClamp;
+            clampedVelocity.y = Mathf.Clamp(clampedVelocity.y, -vertClamp, vertClamp);
         }
 
         // Horizontal
@@ -38,7 +37,7 @@ public class FlyingState : PlayerState
         if (player.MoveInput == 0) 
         {
             float drag = player.FlyingDrag; 
-            clampedVelocity.x *= (1 - drag * Time.fixedDeltaTime); 
+            clampedVelocity.x *= 1 - drag * Time.fixedDeltaTime; 
         }
         else
         {

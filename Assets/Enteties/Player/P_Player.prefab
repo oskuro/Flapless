@@ -343,11 +343,14 @@ MonoBehaviour:
   _jumpForce: 14
   GroundAcceleration: 70
   GroundDeceleration: 50
-  _flyingForce: 30
+  _groundCheckSize: {x: 1, y: 0.18}
+  _flyingForce: 25
   _flyingSpeed: 5
   FlyingAcceleration: 35
   FlyingDeceleration: 20
   FlyingDrag: 0.2
+  VerticalVelocityClamp: 4
+  MoveCheck: {x: 0.4, y: 1.3}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
