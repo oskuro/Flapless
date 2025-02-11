@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
     {
         InitClassVariables();
 
-        // Change to our default state
+        // init state
         if (BalloonCount > 0) { ChangeState(new FlyingState(this)); }
         else { ChangeState(new GroundedState(this)); }
         
