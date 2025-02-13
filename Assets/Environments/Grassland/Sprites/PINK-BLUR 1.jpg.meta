@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3aa89a51056b1f544a63eb5bea09dcaa
+guid: 691aa834b8dc20f49ab8b60f3a3ed062
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3565061748312079355
-    second: tileeeee_0
+      213: 1491955059396052183
+    second: PINK-BLUR 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,17 +46,17 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 367
-  spriteBorder: {x: 0, y: 0, z: 0, w: 61}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -113,37 +113,33 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tileeeee_0
+      name: PINK-BLUR 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 367
-        height: 356
+        width: 1200
+        height: 900
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50486897a3b568ec0800000000000000
-      internalID: -3565061748312079355
+      spriteID: 7d40628c83d74b410800000000000000
+      internalID: 1491955059396052183
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
     customData: 
-    physicsShape:
-    - - {x: 183.5, y: 120}
-      - {x: -183.5, y: 120}
-      - {x: -183.5, y: -178}
-      - {x: 183.5, y: -178}
+    physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -151,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      tileeeee_0: -3565061748312079355
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

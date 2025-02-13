@@ -6,7 +6,7 @@ public class FlyingState : PlayerState
 
     public override void Enter()
     {
-        
+        player.PlayerAnimator.SetBool("Flying", true);
     }
 
     public override void Update()
@@ -57,7 +57,7 @@ public class FlyingState : PlayerState
 
     public override void Exit()
     {
-        // Cleanup if needed
+        player.PlayerAnimator.SetBool("Flying", false);
     }
 
     

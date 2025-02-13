@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: d0d7e5dea1c2fc54c9eca3a1b9764f58
+guid: 9aebae5446bbf29459b7ebb30c645cfa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8330824845277220213
-    second: IMG_0054_0
+      213: 665071178685698156
+    second: 8TznoXBXc-2826923423_0
+  - first:
+      213: 5301797748103351529
+    second: 8TznoXBXc-2826923423_1
+  - first:
+      213: 5172244546411632891
+    second: 8TznoXBXc-2826923423_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,19 +46,19 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 0
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 650
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.14006451, y: 0.5382318}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 2843, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,23 +119,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: platform_center
+      name: 8TznoXBXc-2826923423_0
       rect:
         serializedVersion: 2
-        x: 77
-        y: 45
-        width: 2229
-        height: 741
+        x: 0
+        y: 3
+        width: 1137
+        height: 2388
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 57d4fb4ee090d9370800000000000000
-      internalID: 8330824845277220213
+      spriteID: c6059eb96beca3900800000000000000
+      internalID: 665071178685698156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8TznoXBXc-2826923423_1
+      rect:
+        serializedVersion: 2
+        x: 1441
+        y: 0
+        width: 1139
+        height: 2389
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec8aa636f4c39940800000000000000
+      internalID: 5301797748103351529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8TznoXBXc-2826923423_2
+      rect:
+        serializedVersion: 2
+        x: 2863
+        y: 0
+        width: 1137
+        height: 2389
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf81150e20187c740800000000000000
+      internalID: 5172244546411632891
       vertices: []
       indices: 
       edges: []
@@ -139,7 +189,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,9 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      platform_center: 8330824845277220213
-      plattform_left: -1580020945
-      plattform_right: -1000310126
+      8TznoXBXc-2826923423_0: 665071178685698156
+      8TznoXBXc-2826923423_1: 5301797748103351529
+      8TznoXBXc-2826923423_2: 5172244546411632891
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
