@@ -1,0 +1,17 @@
+{
+    "name": "AD_Balloons",
+    "rootNamespace": "",
+    "references": [
+        "GUID:26f155e46ec82e94685dc2961375e82b",
+        "GUID:b9b7198f404432041842c8adfb4012dc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

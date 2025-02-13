@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     // public fields
-    public int BalloonCount { get; private set; } = 0;
+    public int BalloonCount { get; set; } = 0;
     public float MoveInput { get; private set; }
     public Rigidbody2D Rb2D { get; private set; }
     public Animator PlayerAnimator { get; private set; }
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
         if (collider != null)
         {
-            var playerHeight = collider.bounds.size.y;
+            var playerHeight = collider.bounds.max.y;
             var offset = collider.offset.y;
             _rayDistance = playerHeight / 2f - offset;
         }
@@ -166,4 +166,13 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireCube(transform.position + Vector3.right * MoveInput * 0.5f, MoveCheck); 
     }
 
+    public void AddBalloon() 
+    {
+        BalloonCount++;
+    }
+
+    public void RemoveBalloon() 
+    {
+        BalloonCount--;
+    }
 }
