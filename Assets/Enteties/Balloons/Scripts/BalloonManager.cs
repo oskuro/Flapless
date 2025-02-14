@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BalloonManager : MonoBehaviour
@@ -6,13 +7,15 @@ public class BalloonManager : MonoBehaviour
     [SerializeField] LayerMask balloonLayerMask;
     [SerializeField] List<BalloonSlot> balloonSlots;
     int maxBalloons = 3;
+    
     Rigidbody2D rb2d;
     Player playerMovement;
 
     void Start()
     {
-        balloonSlots.AddRange(transform.GetComponentsInChildren<BalloonSlot>());
+        //balloonSlots.AddRange(transform.GetComponentsInChildren<BalloonSlot>());
         balloonSlots.ForEach(bs => bs.onBalloonDeath += RemoveBalloon);
+        
         rb2d = GetComponent<Rigidbody2D>();
         playerMovement = GetComponent<Player>();
     }
@@ -42,7 +45,8 @@ public class BalloonManager : MonoBehaviour
 
     public void SpawnBalloon(GameObject bloon)
     {
-        if (balloonSlots.Count >= maxBalloons)
+        var freeSlots = balloonSlots.Where(bs => bs.IsSlotFree()).Count();
+        if (freeSlots <= 0)
             return;
 
         foreach (BalloonSlot bs in balloonSlots)

@@ -153,7 +153,7 @@ public class Player : MonoBehaviour
             Debug.Log("Trigger: " + collider.gameObject.name);
         }
 
-        GameObject.Destroy(collider.gameObject);
+        //GameObject.Destroy(collider.gameObject);
         BalloonCount++;
     }
 

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(LineRenderer))]
 public class RopeManager : MonoBehaviour
 {
     LineRenderer lineRenderer;
