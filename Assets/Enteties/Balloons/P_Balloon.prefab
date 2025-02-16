@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 546126101929907786}
   - component: {fileID: 4913260891078095995}
   - component: {fileID: 5157783159747849976}
+  - component: {fileID: 6827090365341522141}
   m_Layer: 7
   m_Name: P_Balloon
   m_TagString: Untagged
@@ -131,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minSpeed: 0.1
-  maxSpeed: 3
+  maxSpeed: 30
   maxDistance: 1
   offsetMagnitude: 0.35
   offsetChangeRate: 0.5
@@ -283,6 +284,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+--- !u!50 &6827090365341522141
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2707473566702625632}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2858582342210735800
 GameObject:
   m_ObjectHideFlags: 0

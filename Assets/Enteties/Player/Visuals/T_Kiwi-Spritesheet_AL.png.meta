@@ -349,17 +349,17 @@ TextureImporter:
         rgba: 4278190335
     - name: Torso
       guid: 22a856b11b3facf41804b4cf9b6ef777
-      position: {x: 113.48937, y: -0.000020261494, z: 0}
+      position: {x: 113.48942, y: -0.000020743806, z: 0}
       rotation: {x: 0, y: 0, z: -0.024187794, w: 0.99970746}
-      length: 116.34357
+      length: 116.34352
       parentId: 15
       color:
         serializedVersion: 2
         rgba: 4278255615
     - name: Head
       guid: b86bb570f0cc4ee42b987d59278dfb1e
-      position: {x: 116.34357, y: 0.000012757633, z: 0}
-      rotation: {x: 0, y: 0, z: -0.016889162, w: 0.99985737}
+      position: {x: 116.34352, y: 0.000012757633, z: 0}
+      rotation: {x: 0, y: 0, z: -0.016889289, w: 0.9998574}
       length: 131.68063
       parentId: 1
       color:
@@ -422,25 +422,25 @@ TextureImporter:
     - name: RightThigh
       guid: 2456c86e8838e78449b8a462cd780970
       position: {x: 9.910558, y: 70.536674, z: -1}
-      rotation: {x: 0, y: 0, z: -0.6047295, w: 0.796431}
-      length: 36.73564
+      rotation: {x: 0, y: 0, z: -0.6047294, w: 0.79643106}
+      length: 36.73563
       parentId: 0
       color:
         serializedVersion: 2
         rgba: 4294934528
     - name: RightShin
       guid: 75cae61042daece429350606102916ea
-      position: {x: 36.735638, y: 0.0000033216359, z: -2}
-      rotation: {x: 0, y: 0, z: -0.4344124, w: 0.9007141}
-      length: 12.719414
+      position: {x: 36.735622, y: 0.000004425232, z: -2}
+      rotation: {x: 0, y: 0, z: -0.43441272, w: 0.9007139}
+      length: 12.719404
       parentId: 9
       color:
         serializedVersion: 2
         rgba: 4294901888
     - name: RighFoot
       guid: d25a4744585b1de4f91a5b99ac7caff2
-      position: {x: 12.719421, y: -0.0000054165303, z: -1}
-      rotation: {x: 0, y: 0, z: 0.79750544, w: 0.6033118}
+      position: {x: 12.7193985, y: 0.000001034692, z: -1}
+      rotation: {x: 0, y: 0, z: 0.7975056, w: 0.60331166}
       length: 48.806225
       parentId: 10
       color:
@@ -458,16 +458,16 @@ TextureImporter:
     - name: LeftShin
       guid: cb567993d4f2bd640857e23ea54f9728
       position: {x: 39.088978, y: 0.000019389392, z: -2}
-      rotation: {x: 0, y: 0, z: -0.43480748, w: 0.9005234}
-      length: 13.81531
+      rotation: {x: 0, y: 0, z: -0.43480662, w: 0.90052384}
+      length: 13.815295
       parentId: 12
       color:
         serializedVersion: 2
         rgba: 4278255360
     - name: LeftFoot
       guid: ac216be1ece21ec49b29235f9174663c
-      position: {x: 13.815311, y: 0.0000052506075, z: -1}
-      rotation: {x: 0, y: 0, z: 0.8161092, w: 0.5778978}
+      position: {x: 13.81532, y: 0.0000051118295, z: -1}
+      rotation: {x: 0, y: 0, z: 0.81610864, w: 0.5778986}
       length: 48.308437
       parentId: 13
       color:
@@ -477,11 +477,20 @@ TextureImporter:
       guid: c9c4b98ba7230fd42a524865074bffe1
       position: {x: 128.39587, y: 101.22714, z: 0}
       rotation: {x: 0, y: -0, z: 0.7134552, w: 0.70070094}
-      length: 113.48937
+      length: 113.48942
       parentId: 0
       color:
         serializedVersion: 2
         rgba: 4294901760
+    - name: BalloonAnchor
+      guid: f719adb326d6fd27a9bc6fb95a865d95
+      position: {x: 84.40603, y: -0.76127195, z: 0}
+      rotation: {x: 0, y: -0, z: 0.7348504, w: 0.6782292}
+      length: 40.077194
+      parentId: 6
+      color:
+        serializedVersion: 2
+        rgba: 4294902015
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 1537655665
     vertices:
