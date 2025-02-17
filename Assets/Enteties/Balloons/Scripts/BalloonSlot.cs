@@ -37,7 +37,7 @@ public class BalloonSlot : MonoBehaviour
             balloon.enabled = true;
             rope.enabled = true;
             balloon.Fly(transform);
-            balloonTimeToLive = Time.fixedTime + balloon.timeToLive;
+            balloonTimeToLive = Time.fixedTime + balloon.TimeToLive;
         }
     }
 

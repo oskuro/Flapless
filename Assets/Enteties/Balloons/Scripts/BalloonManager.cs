@@ -6,7 +6,6 @@ public class BalloonManager : MonoBehaviour
 {
     [SerializeField] LayerMask balloonLayerMask;
     [SerializeField] List<BalloonSlot> balloonSlots;
-    int maxBalloons = 3;
     
     Rigidbody2D rb2d;
     Player playerMovement;
