@@ -10,6 +10,7 @@ public class BalloonManager : MonoBehaviour
     Rigidbody2D rb2d;
     Player playerMovement;
 
+    private bool _debug = false;
     void Start()
     {
         //balloonSlots.AddRange(transform.GetComponentsInChildren<BalloonSlot>());
@@ -21,10 +22,12 @@ public class BalloonManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("BalloonManager: OnTriggerEnter2D");
+        if(_debug)
+            Debug.Log("BalloonManager: OnTriggerEnter2D");
         if (balloonLayerMask == (balloonLayerMask | (1 << collision.gameObject.layer)))
         {
-            Debug.Log("BalloonManager: OnTriggerEnter2D - BalloonLayer");
+            if(_debug)
+                Debug.Log("BalloonManager: OnTriggerEnter2D - BalloonLayer");
             SpawnBalloon(collision.gameObject);
         }
     }

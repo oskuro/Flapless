@@ -1,0 +1,1 @@
+When using a unity rigidbody, remember to use linearVelocity since using velocity is deprecated.
