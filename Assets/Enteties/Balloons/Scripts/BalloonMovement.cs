@@ -14,10 +14,13 @@ public class BalloonMovement : MonoBehaviour
     Collider2D _collider;
     Rigidbody2D _rb;
 
+    Vector2 _extrapolatedPosition = Vector2.zero;
+
     
     [HideInInspector] public float TimeToLive = 10f; // Set by BalloonSlot
     [SerializeField] LayerMask _ignorePlayerMask;
     [SerializeField] float _dampingFactor = 0.35f;
+    [SerializeField] float _predictionTime = 0.3f;
 
     void Awake()
     {
@@ -41,29 +44,39 @@ public class BalloonMovement : MonoBehaviour
         }
         else
         {
-            //  FollowAnchor();
+            FollowAnchor();
+            PredictPosition(_rb, _predictionTime);
         }
+    }
+
+    void PredictPosition(Rigidbody2D _rigidbody, float _predictionTime){
+        //get the rigidbodies velocity
+        Vector2 _targetVelocity = _rigidbody.linearVelocity;
+        //multiply it by the amount of seconds you want to see into the future
+        _targetVelocity *= _predictionTime;
+        //add it to the rigidbodies position
+       // _targetVelocity += _rigidbody.position;
+        //Return the position of where the target will be in the amount of seconds you want to see into the future
+        _extrapolatedPosition = _targetVelocity + _rigidbody.position;
     }
 
     private void FollowAnchor()
     {
-    Vector3 direction = (_playerAnchor.position - transform.position);
-    float distance = direction.magnitude;
-    direction.Normalize();
+        Vector3 direction = (_playerAnchor.position - transform.position);
+        float distance = direction.magnitude;
+        direction.Normalize();
 
-    float stoppingDistance = 0.5f; // Distance at which we start damping
-    float forceStrength = 10f; // Adjust as needed
+        float stoppingDistance = 0.5f; // Distance at which we start damping
+        float forceStrength = 10f; // Adjust as needed
 
-    // Scale force based on distance
-    float speedFactor = Mathf.Clamp01(distance / stoppingDistance); 
+        var futureDistance = Vector2.Distance(_extrapolatedPosition, _playerAnchor.position);
+        // Scale force based on distance
+        float speedFactor = Mathf.Clamp01(distance / stoppingDistance); 
+        speedFactor = _speedCurve.Evaluate(speedFactor);
+        Debug.Log("Speed Factor: " + speedFactor);
+        _rb.linearVelocity = direction * _maxSpeed * speedFactor;
+        //_rb.AddForce(direction * forceStrength * speedFactor);
 
-    _rb.AddForce(direction * forceStrength * speedFactor);
-
-    // Optionally, dampen velocity when very close to stop overshooting
-    if (distance < stoppingDistance)
-    {
-        _rb.linearVelocity *= 0.9f; // Slow down smoothly
-    }
     }
 
     public void Free()
@@ -77,24 +90,14 @@ public class BalloonMovement : MonoBehaviour
         gameObject.layer = 0;
         _collider.excludeLayers = _ignorePlayerMask;
         _playerAnchor = anchor;
+    }
 
-        // SpringJoint2D joint = gameObject.AddComponent<SpringJoint2D>();
-        // joint.connectedBody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
-        // joint.autoConfigureDistance = false;
-        // joint.distance = 1; // How high above the player it should stay
-        // joint.dampingRatio = 0.5f; // Adjust for smooth movement
-        // joint.frequency = 2f; // Adjust for tightness of the "lift"
-        transform.position = _playerAnchor.position;
-        HingeJoint2D joint = gameObject.AddComponent<HingeJoint2D>();
-        joint.connectedBody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
-        joint.anchor = _playerAnchor.position;
-        joint.enableCollision = true;
-        joint.useLimits = true;
-        
-        JointAngleLimits2D limits = new JointAngleLimits2D();
-        limits.min = -7.5f; // Allow a slight tilt
-        limits.max = 7.5f;
-        joint.limits = limits;
-
+    void OnDrawGizmos() 
+    {
+        if(_extrapolatedPosition != Vector2.zero)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(_rb.position, _extrapolatedPosition);
+        }
     }
 }

@@ -131,13 +131,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 633830318d8e75942b1adfbfb9ddca11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxSpeed: 4
+  _maxSpeed: 6
   _maxDistance: 1
   _speedCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.34
       value: 0
       inSlope: 0
       outSlope: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _dampingFactor: 0.035
+  _predictionTime: 0.3
 --- !u!120 &4913260891078095995
 LineRenderer:
   serializedVersion: 2
