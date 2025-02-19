@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 9aebae5446bbf29459b7ebb30c645cfa
+guid: 14043d62b95aff64e80fd24525558f7e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 665071178685698156
-    second: 8TznoXBXc-2826923423_0
-  - first:
-      213: 5301797748103351529
-    second: 8TznoXBXc-2826923423_1
-  - first:
-      213: 5172244546411632891
-    second: 8TznoXBXc-2826923423_2
+      213: -5236492600115043857
+    second: sky-gradient_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,13 +46,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.14006451, y: 0.5382318}
-  spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 2843, w: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 45
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -119,67 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 8TznoXBXc-2826923423_0
+      name: sky-gradient_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 3
-        width: 1137
-        height: 2388
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c6059eb96beca3900800000000000000
-      internalID: 665071178685698156
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 8TznoXBXc-2826923423_1
-      rect:
-        serializedVersion: 2
-        x: 1441
         y: 0
-        width: 1139
-        height: 2389
+        width: 1127
+        height: 796
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9ec8aa636f4c39940800000000000000
-      internalID: 5301797748103351529
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 8TznoXBXc-2826923423_2
-      rect:
-        serializedVersion: 2
-        x: 2863
-        y: 0
-        width: 1137
-        height: 2389
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bf81150e20187c740800000000000000
-      internalID: 5172244546411632891
+      spriteID: fe16e2d69bd3457b0800000000000000
+      internalID: -5236492600115043857
       vertices: []
       indices: 
       edges: []
@@ -188,8 +138,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -198,9 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      8TznoXBXc-2826923423_0: 665071178685698156
-      8TznoXBXc-2826923423_1: 5301797748103351529
-      8TznoXBXc-2826923423_2: 5172244546411632891
+      sky-gradient_0: -5236492600115043857
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

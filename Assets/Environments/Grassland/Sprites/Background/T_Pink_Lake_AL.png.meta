@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 14043d62b95aff64e80fd24525558f7e
+guid: c9a8aba35bc08c14594fb3547f82626d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5236492600115043857
-    second: sky-gradient_0
+      213: -4800063325926005637
+    second: background-pink_Lake_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 45
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sky-gradient_0
+      name: background-pink_Lake_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1127
-        height: 796
+        width: 554
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe16e2d69bd3457b0800000000000000
-      internalID: -5236492600115043857
+      spriteID: b74ecce36dfb26db0800000000000000
+      internalID: -4800063325926005637
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      background-pink_Lake_0: -4800063325926005637
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
