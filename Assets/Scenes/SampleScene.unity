@@ -7978,7 +7978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5697283531711374848, guid: e48ea223abedf364baaed719a63c3b45, type: 3}
       propertyPath: Debugging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6217621317528976122, guid: e48ea223abedf364baaed719a63c3b45, type: 3}
       propertyPath: m_ShadowMesh.m_Mesh
