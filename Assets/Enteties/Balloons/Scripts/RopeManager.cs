@@ -7,18 +7,20 @@ public class RopeManager : MonoBehaviour
     LineRenderer lineRenderer;
     Transform player;
     [SerializeField] float ropeWidth = 0.1f;
+    [SerializeField] Transform _target;
     Vector3[] positions = new Vector3[2];
 
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        player = GameObject.FindWithTag("Player").transform;
+        if(_target == null)
+            _target = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()
     {
         positions[0] = transform.position;
-        positions[1] = player.position;
+        positions[1] = _target.position;
 
         lineRenderer.SetPositions(positions);
 

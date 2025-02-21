@@ -8,7 +8,6 @@ public class BalloonMovement : MonoBehaviour
     Transform _playerAnchor;
     //[SerializeField] float _minSpeed = .1f;
     [SerializeField] float _maxSpeed = 3f;
-    [SerializeField] float _maxDistance = 1f;
     [SerializeField] AnimationCurve _speedCurve;
     Vector3 _flyOffDir = Vector3.zero;
     Collider2D _collider;
@@ -19,7 +18,6 @@ public class BalloonMovement : MonoBehaviour
     
     [HideInInspector] public float TimeToLive = 10f; // Set by BalloonSlot
     [SerializeField] LayerMask _ignorePlayerMask;
-    [SerializeField] float _dampingFactor = 0.35f;
     [SerializeField] float _predictionTime = 0.3f;
 
     void Awake()
@@ -45,7 +43,7 @@ public class BalloonMovement : MonoBehaviour
         else
         {
             FollowAnchor();
-            PredictPosition(_rb, _predictionTime);
+            //PredictPosition(_rb, _predictionTime);
         }
     }
 
@@ -67,13 +65,12 @@ public class BalloonMovement : MonoBehaviour
         direction.Normalize();
 
         float stoppingDistance = 0.5f; // Distance at which we start damping
-        float forceStrength = 10f; // Adjust as needed
 
         var futureDistance = Vector2.Distance(_extrapolatedPosition, _playerAnchor.position);
         // Scale force based on distance
         float speedFactor = Mathf.Clamp01(distance / stoppingDistance); 
         speedFactor = _speedCurve.Evaluate(speedFactor);
-        Debug.Log("Speed Factor: " + speedFactor);
+        //Debug.Log("Speed Factor: " + speedFactor);
         _rb.linearVelocity = direction * _maxSpeed * speedFactor;
         //_rb.AddForce(direction * forceStrength * speedFactor);
 
@@ -82,7 +79,7 @@ public class BalloonMovement : MonoBehaviour
     public void Free()
     {
         _playerAnchor = null;
-        _collider.enabled = false;
+        //_collider.enabled = false;
     }
 
     public void Fly(Transform anchor)

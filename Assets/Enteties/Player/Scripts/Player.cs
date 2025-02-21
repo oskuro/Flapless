@@ -161,7 +161,10 @@ public class Player : MonoBehaviour
     {
         if(!Debugging)
             return;
+        // Is Grounded Check
         Gizmos.DrawWireCube(transform.position + (Vector3.down * _rayDistance), (Vector3) _groundCheckSize);
+        
+        // Movement Check
         Gizmos.color = Color.red; 
         Gizmos.DrawWireCube(transform.position + Vector3.right * MoveInput * 0.5f, MoveCheck); 
     }
@@ -169,6 +172,7 @@ public class Player : MonoBehaviour
     public void AddBalloon() 
     {
         BalloonCount++;
+        Debug.Log("Balloon Count: " + BalloonCount);
     }
 
     public void RemoveBalloon() 
