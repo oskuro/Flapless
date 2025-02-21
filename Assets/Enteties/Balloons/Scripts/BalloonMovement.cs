@@ -38,7 +38,7 @@ public class BalloonMovement : MonoBehaviour
     void FixedUpdate() {
         if (_playerAnchor == null)
         {
-            _rb.linearVelocity = (Vector3.up + _flyOffDir);
+            _rb.linearVelocity = ((Vector3.up + _flyOffDir) * _maxSpeed);
         }
         else
         {
@@ -79,7 +79,7 @@ public class BalloonMovement : MonoBehaviour
     public void Free()
     {
         _playerAnchor = null;
-        //_collider.enabled = false;
+        _collider.enabled = false;
     }
 
     public void Fly(Transform anchor)

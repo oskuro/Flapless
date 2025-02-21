@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     // public fields
     public int BalloonCount { get; set; } = 0;
+    [SerializeField] LayerMask _balloonLayer;
     public float MoveInput { get; private set; }
     public Rigidbody2D Rb2D { get; private set; }
     public Animator PlayerAnimator { get; private set; }
@@ -123,6 +124,19 @@ public class Player : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.BoxCast(transform.position, _groundCheckSize, 0f, Vector2.down, _rayDistance, _groundLayer);
         IsGrounded = hit.collider != null;
+
+        hit = Physics2D.BoxCast(transform.position, _groundCheckSize, 0f, Vector2.down, _rayDistance, _balloonLayer);
+        
+        if (hit.collider == null){return;}
+        
+        Debug.Log("Balloon hit");
+
+        
+        if(!hit.collider.gameObject.TryGetComponent<Health>(out Health health)) { return; }
+        
+        Debug.Log("Balloon hit with health");
+        health.TakeDamage(10);
+
     }
 
     private void FixedUpdate() {
@@ -153,8 +167,6 @@ public class Player : MonoBehaviour
             Debug.Log("Trigger: " + collider.gameObject.name);
         }
 
-        //GameObject.Destroy(collider.gameObject);
-        BalloonCount++;
     }
 
     void OnDrawGizmos() 
@@ -172,11 +184,14 @@ public class Player : MonoBehaviour
     public void AddBalloon() 
     {
         BalloonCount++;
-        Debug.Log("Balloon Count: " + BalloonCount);
+        if(Debugging)
+            Debug.Log("Balloon Count: " + BalloonCount);
     }
 
     public void RemoveBalloon() 
     {
         BalloonCount--;
+        if(Debugging)
+            Debug.Log("Balloon Count: " + BalloonCount);
     }
 }

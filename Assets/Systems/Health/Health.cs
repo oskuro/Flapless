@@ -23,8 +23,18 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             isDead = true;
-            onDeath?.Invoke(gameObject);
+            
+            if(onDeath != null)
+                onDeath?.Invoke(gameObject);
+            else
+                DestroySelf();
         }
+    }
+
+    private void DestroySelf()
+    {
+        // KAPOW
+        Destroy(gameObject);
     }
 
     public void Heal(int amount)

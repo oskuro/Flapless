@@ -28,7 +28,8 @@ public class BalloonManager : MonoBehaviour
         {
             if(_debug)
                 Debug.Log("BalloonManager: OnTriggerEnter2D - BalloonLayer");
-            SpawnBalloon(collision.gameObject);
+            if(collision.gameObject.GetComponent<BalloonMovement>() != null)
+                SpawnBalloon(collision.gameObject);
         }
     }
 
