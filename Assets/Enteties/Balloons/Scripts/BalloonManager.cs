@@ -11,6 +11,8 @@ public class BalloonManager : MonoBehaviour
     Player playerMovement;
 
     private bool _debug = false;
+
+    
     void Start()
     {
         //balloonSlots.AddRange(transform.GetComponentsInChildren<BalloonSlot>());
@@ -18,6 +20,8 @@ public class BalloonManager : MonoBehaviour
         
         rb2d = GetComponent<Rigidbody2D>();
         playerMovement = GetComponent<Player>();
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,7 +43,8 @@ public class BalloonManager : MonoBehaviour
         {
             if (bs.Balloon == bloon)
             {
-                playerMovement.RemoveBalloon();
+                if(playerMovement)
+                    playerMovement.RemoveBalloon();
                 bs.FreeBalloon();
                 break;
             }
@@ -57,12 +62,15 @@ public class BalloonManager : MonoBehaviour
             if (bs.IsSlotFree())
             {
                 bs.AddBalloon(bloon);
-                playerMovement.AddBalloon();
+                if(playerMovement)
+                    playerMovement.AddBalloon();
                 break;
             }
         }
 
     }
+
+ 
 
     void OnDisable()
     {

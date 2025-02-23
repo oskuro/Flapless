@@ -1,0 +1,329 @@
+fileFormatVersion: 2
+guid: 2ea2cd55c057be74caf1eb1ef08dc0f6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1151296217667094243
+    second: Balloon-Spritesheet_0
+  - first:
+      213: 7616365783874253732
+    second: Balloon-Spritesheet_1
+  - first:
+      213: -1487893455386401088
+    second: Balloon-Spritesheet_2
+  - first:
+      213: -7080873088859155408
+    second: Balloon-Spritesheet_3
+  - first:
+      213: -1786904449519492828
+    second: Balloon-Spritesheet_4
+  - first:
+      213: -6399308488691310270
+    second: Balloon-Spritesheet_5
+  - first:
+      213: 2927154347375659472
+    second: Balloon-Spritesheet_6
+  - first:
+      213: 5146637316980953124
+    second: Balloon-Spritesheet_7
+  - first:
+      213: -6549394613118261724
+    second: Balloon-Spritesheet_8
+  - first:
+      213: -5544237032708392278
+    second: Balloon-Spritesheet_9
+  - first:
+      213: 3733482653452089803
+    second: Balloon-Spritesheet_10
+  - first:
+      213: 5407106846047409373
+    second: Balloon-Spritesheet_11
+  - first:
+      213: -7254297107715752588
+    second: Balloon-Spritesheet_12
+  - first:
+      213: 2915460146966241631
+    second: Balloon-Spritesheet_13
+  - first:
+      213: -7514404871649460182
+    second: Balloon-Spritesheet_14
+  - first:
+      213: -6336629580260482168
+    second: Balloon-Spritesheet_15
+  - first:
+      213: 2348968876106899676
+    second: Balloon-Spritesheet_16
+  - first:
+      213: -6320423628755519091
+    second: Balloon-Spritesheet_17
+  - first:
+      213: -8158835497261459629
+    second: Balloon-Spritesheet_18
+  - first:
+      213: 4272225272446863964
+    second: Balloon-Spritesheet_19
+  - first:
+      213: 2815629085437635031
+    second: Balloon-Spritesheet_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1024
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Balloon-Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 313
+        width: 202
+        height: 235
+      alignment: 9
+      pivot: {x: 0.6443194, y: 0.14162365}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d19b3ba9036c500f0800000000000000
+      internalID: -1151296217667094243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Balloon-Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 316
+        width: 201
+        height: 230
+      alignment: 9
+      pivot: {x: 0.6208642, y: 0.1549579}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a3b343c354c2b960800000000000000
+      internalID: 7616365783874253732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Balloon-Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 315
+        width: 201
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe99cef6ba656f4d92a165dd01ef884
+      internalID: 1589186283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Balloon-Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 285
+        width: 264
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c1028b3d9e9244fbb0b553a6e51341
+      internalID: 804285798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Balloon-Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 186
+        width: 355
+        height: 361
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22c1edfeb5ba2ea49a2e88312945c906
+      internalID: -226653466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Balloon-Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 2097
+        y: 127
+        width: 524
+        height: 425
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a20b7fbfa78c5646b9878a57dc91257
+      internalID: 917003371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6b7ad1b116d81f444b918549dbdbc045
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Balloon-Spritesheet_21: 1589186283
+      Balloon-Spritesheet_22: 804285798
+      Balloon-Spritesheet_23: -226653466
+      Balloon-Spritesheet_24: 917003371
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

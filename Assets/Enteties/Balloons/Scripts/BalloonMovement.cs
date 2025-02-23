@@ -19,14 +19,17 @@ public class BalloonMovement : MonoBehaviour
     [HideInInspector] public float TimeToLive = 10f; // Set by BalloonSlot
     [SerializeField] LayerMask _ignorePlayerMask;
     [SerializeField] float _predictionTime = 0.3f;
+    Animator _animator;
 
+    int _popHash;
     void Awake()
     {
         _collider = GetComponent<Collider2D>();
         _rb = GetComponent<Rigidbody2D>();
         _rb.simulated = true;
         _flyOffDir = new Vector3((float)Random.Range(-1, 2), 0, 0f);
-
+        _animator = GetComponentInChildren<Animator>();
+        _popHash = Animator.StringToHash("Pop");
         
     }
 
@@ -80,6 +83,7 @@ public class BalloonMovement : MonoBehaviour
     {
         _playerAnchor = null;
         _collider.enabled = false;
+        _animator.SetTrigger(_popHash);
     }
 
     public void Fly(Transform anchor)
