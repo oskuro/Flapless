@@ -25,17 +25,17 @@ public class BirdBalloonAidedMovement : MonoBehaviour
     int _groundedHash;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // INPUT SYSTEM
         _moveAction = InputSystem.actions.FindAction("Move");
+
+        // COMPONENTS
         Rb2D = GetComponent<Rigidbody2D>();
-
         PlayerAnimator = GetComponentInChildren<Animator>();
-
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        // calculate player height
+        // CALC PLAYER HEIGHT
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
         if (collider != null)
         {
@@ -44,12 +44,16 @@ public class BirdBalloonAidedMovement : MonoBehaviour
             _rayDistance = playerHeight / 2f - offset;
         }
 
+        // ANIMATION HASHES
         _flapHash = Animator.StringToHash("Flap");
         _jumpingHash = Animator.StringToHash("Jumping");
         _groundedHash = Animator.StringToHash("IsGrounded");
+
+        // CALLBACKS
+        GetComponent<BalloonManager>().OnNoBalloonsLeft += OnFail;
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         float move =_moveAction.ReadValue<float>();
@@ -117,7 +121,14 @@ public class BirdBalloonAidedMovement : MonoBehaviour
         
         Debug.Log("Balloon hit with health");
         health.TakeDamage(10);
+    }
 
+    public void OnFail() {
+        Debug.Log("Game Over");
+    }
+
+    void OnDisable() {
+        GetComponent<BalloonManager>().OnNoBalloonsLeft -= OnFail;
     }
 
 }

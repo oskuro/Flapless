@@ -193,5 +193,7 @@ public class Player : MonoBehaviour
         BalloonCount--;
         if(Debugging)
             Debug.Log("Balloon Count: " + BalloonCount);
+        if(BalloonCount <= 0)
+            Debug.Log("Dead lol");
     }
 }

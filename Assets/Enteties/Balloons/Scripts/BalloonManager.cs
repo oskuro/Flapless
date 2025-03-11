@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -12,7 +13,8 @@ public class BalloonManager : MonoBehaviour
 
     private bool _debug = false;
 
-    
+    public Action OnNoBalloonsLeft;
+
     void Start()
     {
         //balloonSlots.AddRange(transform.GetComponentsInChildren<BalloonSlot>());
@@ -20,8 +22,6 @@ public class BalloonManager : MonoBehaviour
         
         rb2d = GetComponent<Rigidbody2D>();
         playerMovement = GetComponent<Player>();
-
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,6 +46,9 @@ public class BalloonManager : MonoBehaviour
                 if(playerMovement)
                     playerMovement.RemoveBalloon();
                 bs.FreeBalloon();
+                var freeSlots = balloonSlots.Where(bs => bs.IsSlotFree()).Count();
+                if(freeSlots <= 0)
+                    OnNoBalloonsLeft?.Invoke();
                 break;
             }
         }

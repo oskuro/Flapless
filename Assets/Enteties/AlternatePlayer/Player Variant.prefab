@@ -342,6 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7847677420449059697}
   - component: {fileID: 8716203247330075823}
+  - component: {fileID: 2915081064580829417}
   - component: {fileID: 431553301296514322}
   - component: {fileID: 4703259920208340344}
   - component: {fileID: 1347565215867687357}
@@ -383,15 +384,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeed: 1.5
-  verticalSpeed: 3.5
+  verticalSpeed: 3
   _flyInterval: 0.15
-  _groundCheckSize: {x: 0, y: 0}
+  _groundCheckSize: {x: 1, y: 0.18}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
   _balloonLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &2915081064580829417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2939195688796036635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d031035358508af4fa0440ddee263626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balloonLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  balloonSlots:
+  - {fileID: 4919592734744731916}
+  - {fileID: 8351923556526347645}
 --- !u!50 &431553301296514322
 Rigidbody2D:
   serializedVersion: 5
@@ -843,7 +862,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f343482cc97907542ad8c5335e6beb5b, type: 3}
-  m_Color: {r: 0.3679245, g: 0.14057493, b: 0.32617253, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -863,7 +882,7 @@ Animator:
   m_GameObject: {fileID: 4976871518027005408}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b9251aff1ed78e1419302f3baf6866dd, type: 2}
+  m_Controller: {fileID: 9100000, guid: a759e8a6b367e5f4ba0fb68ad464d8a8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
