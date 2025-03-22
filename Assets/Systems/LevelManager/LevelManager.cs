@@ -1,15 +1,27 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    private const float FIXED_TIMESCALE = 0.02f;
     [SerializeField] Transform _checkpoint;
     [SerializeField] GameObject _playerPrefab;
     PlayerBalloonLift _player;
 
+    [SerializeField] float _waitBeforeShowScore = 0.35f;
+    [SerializeField] float _slowmoTimeScale = 0.25f;
+
+    [SerializeField] Animator _gameOverAnimatorController;
+
+    int _hiddenBool;
+
     void Start()
     {
         SpawnPlayer();
+
+        _hiddenBool = Animator.StringToHash("Visible");
     }
 
     private void SpawnPlayer()
@@ -25,15 +37,40 @@ public class LevelManager : MonoBehaviour
 
     public void PlayerDied()
     {
-        _player.gameObject.SetActive(false);
+        StartCoroutine(ShowRestart());
     }
 
-    void OnDisable() 
+    IEnumerator ShowRestart()
     {
-        if(_player) 
+        ChangeTimeScale(_slowmoTimeScale);
+        yield return new WaitForSecondsRealtime(_waitBeforeShowScore);
+        ChangeTimeScale(1);
+        _gameOverAnimatorController.SetBool(_hiddenBool, true);
+    }
+
+    /// <summary>
+    /// Changes Time.timeScale and Time.fixedDeltaTime to the given value.
+    /// Values should be a float between 0 and 1
+    /// Calling the method without a value resets the timescale to 1 
+    /// </summary>
+    /// <param name="newTimeScale"></param>
+    private void ChangeTimeScale(float newTimeScale = 1.0f) 
+    {
+        Time.timeScale = newTimeScale;
+        Time.fixedDeltaTime = FIXED_TIMESCALE * newTimeScale;
+    }
+
+    void OnDisable()
+    {
+        if (_player)
         {
             _player.OnDeath -= PlayerDied;
         }
+    }
+
+    public void Return()
+    {
+        SceneManager.LoadScene("Main");
     }
 
 }

@@ -5,17 +5,18 @@ public class PlayerBalloonLift : MonoBehaviour
 {
     [SerializeField] public int MaxBalloons = 3;
 
+
     public Action OnDeath;
-    public int Balloons {
-        get {return _balloons;}
-        set 
+    public int Balloons
+    {
+        get { return _balloons; }
+        set
         {
             _balloons = value;
-            _rB2D.gravityScale = 1f * ((float)MaxBalloons / (float)_balloons);
-            if (_balloons <= 0 && OnDeath != null)
-            {
-                OnDeath();
-            }
+            var newGravity = 1f * ((float)MaxBalloons / (float)_balloons);
+            if (newGravity != Mathf.Infinity) // The value might be infinite if _ballons are 0
+                _rB2D.gravityScale = newGravity;
+
         }
 
     }
@@ -26,7 +27,7 @@ public class PlayerBalloonLift : MonoBehaviour
     InputAction _moveAction;
     InputAction _jumpAction;
 
-    void Start()
+    void Awake()
     {
         _rB2D = GetComponent<Rigidbody2D>();
 
@@ -37,11 +38,10 @@ public class PlayerBalloonLift : MonoBehaviour
     void Update()
     {
         Balloons = _balloons;
-        float horizontal =_moveAction.ReadValue<float>();
-        _jumpAction.IsPressed();
-        if(_jumpAction.WasPressedThisFrame()) 
+        float horizontal = _moveAction.ReadValue<float>();
+
+        if (_jumpAction.WasPressedThisFrame())
         {
-            Debug.Log("Jump");
             Vector2 movement = new Vector2(horizontal * _horizontalForce, 1f * _verticalForce);
             _rB2D.AddForce(movement, ForceMode2D.Impulse);
         }
@@ -50,6 +50,11 @@ public class PlayerBalloonLift : MonoBehaviour
     public void RemoveBalloon()
     {
         Balloons--;
+        if (_balloons <= 0 && OnDeath != null)
+        {
+            this.enabled = false;
+            OnDeath();
+        }
     }
 
     public void AddBalloon()

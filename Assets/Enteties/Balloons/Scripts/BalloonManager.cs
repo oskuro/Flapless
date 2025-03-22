@@ -8,7 +8,7 @@ public class BalloonManager : MonoBehaviour
     [SerializeField] LayerMask balloonLayerMask;
     [SerializeField] List<BalloonSlot> balloonSlots;
     [SerializeField] GameObject _balloonPrefab;
-    
+
     Rigidbody2D rb2d;
     Player playerMovement;
     PlayerBalloonLift playerMove;
@@ -21,14 +21,14 @@ public class BalloonManager : MonoBehaviour
     {
         //balloonSlots.AddRange(transform.GetComponentsInChildren<BalloonSlot>());
         balloonSlots.ForEach(bs => bs.onBalloonDeath += RemoveBalloon);
-        
+
         rb2d = GetComponent<Rigidbody2D>();
         playerMovement = GetComponent<Player>();
-        if(playerMovement == null)
+        if (playerMovement == null)
         {
             playerMove = GetComponent<PlayerBalloonLift>();
-            if(playerMove)
-                SpawnBalloons(playerMove.Balloons);
+            if (playerMove)
+                SpawnBalloons(playerMove.MaxBalloons);
         }
     }
 
@@ -42,13 +42,13 @@ public class BalloonManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(_debug)
+        if (_debug)
             Debug.Log("BalloonManager: OnTriggerEnter2D");
         if (balloonLayerMask == (balloonLayerMask | (1 << collision.gameObject.layer)))
         {
-            if(_debug)
+            if (_debug)
                 Debug.Log("BalloonManager: OnTriggerEnter2D - BalloonLayer");
-            if(collision.gameObject.GetComponent<BalloonMovement>() != null)
+            if (collision.gameObject.GetComponent<BalloonMovement>() != null)
                 SpawnBalloon(collision.gameObject);
         }
     }
@@ -59,13 +59,13 @@ public class BalloonManager : MonoBehaviour
         {
             if (bs.Balloon == bloon)
             {
-                if(playerMovement)
+                if (playerMovement)
                     playerMovement.RemoveBalloon();
-                if(playerMove)
+                if (playerMove)
                     playerMove.RemoveBalloon();
                 bs.FreeBalloon();
                 var freeSlots = balloonSlots.Where(bs => bs.IsSlotFree()).Count();
-                if(freeSlots == balloonSlots.Count)
+                if (freeSlots == balloonSlots.Count)
                     OnNoBalloonsLeft?.Invoke();
                 break;
             }
@@ -82,13 +82,14 @@ public class BalloonManager : MonoBehaviour
         {
             if (bs.IsSlotFree())
             {
-                if(bloon == null) {
+                if (bloon == null)
+                {
                     bloon = Instantiate(_balloonPrefab, transform.position, Quaternion.identity);
                 }
                 bs.AddBalloon(bloon);
-                if(playerMovement)
+                if (playerMovement)
                     playerMovement.AddBalloon();
-                if(playerMove)
+                if (playerMove)
                 {
                     playerMove.AddBalloon();
                 }

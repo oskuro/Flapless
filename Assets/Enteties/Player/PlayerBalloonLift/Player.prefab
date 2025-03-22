@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 600ef700b6323258fbf9aeba0987ab2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxBalloons: 3
+  MaxBalloons: 2
   _balloons: 0
   _horizontalForce: 1
   _verticalForce: 3
@@ -80,7 +80,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &1341226172675467965
 CircleCollider2D:
   m_ObjectHideFlags: 0
