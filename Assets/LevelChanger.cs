@@ -1,16 +1,14 @@
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelChanger : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] string _levelToChangeTo;
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D collider) 
     {
-        
+        SceneManager.LoadScene(_levelToChangeTo);
     }
 }
