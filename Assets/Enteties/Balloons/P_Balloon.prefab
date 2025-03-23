@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 633830318d8e75942b1adfbfb9ddca11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxSpeed: 6
+  _maxSpeed: 10
   _speedCurve:
     serializedVersion: 2
     m_Curve:

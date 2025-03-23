@@ -38,6 +38,7 @@ public class BalloonSlot : MonoBehaviour
             rope.enabled = true;
             balloon.Fly(transform);
             balloonTimeToLive = Time.fixedTime + balloon.TimeToLive;
+            b.transform.parent = transform;
         }
     }
 
@@ -53,10 +54,12 @@ public class BalloonSlot : MonoBehaviour
 
     public void FreeBalloon()
     {
+        balloon.transform.parent = null;
         balloon.Free();
         balloon = null;
 
         rope.enabled = false;
         rope = null;
+
     }
 }
