@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 public class PlayerBalloonLift : MonoBehaviour
 {
     [SerializeField] public int MaxBalloons = 3;
@@ -13,19 +14,28 @@ public class PlayerBalloonLift : MonoBehaviour
         set
         {
             _balloons = value;
-            var newGravity = 1f * ((float)MaxBalloons / (float)_balloons);
-            if (newGravity != Mathf.Infinity) // The value might be infinite if _ballons are 0
-                _rB2D.gravityScale = newGravity;
 
+            var newGravity = _baseGravity - (_balloonLiftStrength * (float) _balloons);
+            _rB2D.gravityScale = newGravity;
         }
 
     }
-    [SerializeField] private int _balloons = 2;
-    [SerializeField] float _horizontalForce;
-    [SerializeField] float _verticalForce;
+    [SerializeField]
+    private int _balloons = 2;
+    [SerializeField]
+    private float _horizontalForce;
+    [SerializeField]
+    private float _verticalForce;
     private Rigidbody2D _rB2D;
-    InputAction _moveAction;
-    InputAction _jumpAction;
+    private InputAction _moveAction;
+    private InputAction _jumpAction;
+    [SerializeField]
+    private float _balloonLiftStrength;
+    [SerializeField]
+    private float _baseGravity = 1.2f;
+    [SerializeField]
+    private float _flapInterval = 0.5f;
+    private float _previousFlapTime = 0;
 
     void Awake()
     {
@@ -33,18 +43,28 @@ public class PlayerBalloonLift : MonoBehaviour
 
         _moveAction = InputSystem.actions.FindAction("Move");
         _jumpAction = InputSystem.actions.FindAction("Jump");
+
     }
 
     void Update()
     {
-        Balloons = _balloons;
-        float horizontal = _moveAction.ReadValue<float>();
+        Flap();
+    }
 
-        if (_jumpAction.WasPressedThisFrame())
-        {
-            Vector2 movement = new Vector2(horizontal * _horizontalForce, 1f * _verticalForce);
-            _rB2D.AddForce(movement, ForceMode2D.Impulse);
-        }
+    private void Flap()
+    {
+        // Are we allowed to flap?
+        if(_previousFlapTime + _flapInterval > Time.time)
+            return;
+
+        // Do we want to flap
+        if(_jumpAction.IsPressed() == false)
+            return;
+        
+        float moveInput = _moveAction.ReadValue<float>();
+        _previousFlapTime = Time.time;
+        Vector2 movement = new Vector2(moveInput * _horizontalForce, _verticalForce);
+        _rB2D.AddForce(movement, ForceMode2D.Impulse);
     }
 
     public void RemoveBalloon()

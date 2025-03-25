@@ -15,6 +15,7 @@ public class LevelChanger : MonoBehaviour
         levelLoading = SceneManager.LoadSceneAsync(_levelToChangeTo);
         levelLoading.allowSceneActivation = false;
     }
+    
     void OnTriggerEnter2D(Collider2D collider) 
     {
         levelLoading.allowSceneActivation = true;
