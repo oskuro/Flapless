@@ -72,8 +72,8 @@ public class PlayerBalloonLift : MonoBehaviour
         Balloons--;
         if (_balloons <= 0 && OnDeath != null)
         {
-            this.enabled = false;
             OnDeath();
+            this.enabled = false;
         }
     }
 
