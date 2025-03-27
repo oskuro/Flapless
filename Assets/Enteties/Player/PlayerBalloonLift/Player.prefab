@@ -53,9 +53,9 @@ MonoBehaviour:
   MaxBalloons: 2
   _balloons: 0
   _horizontalForce: 1
-  _verticalForce: 3
+  _verticalForce: 4
   _balloonLiftStrength: 0.2
-  _baseGravity: 1.2
+  _baseGravity: 1
   _flapInterval: 0.35
 --- !u!50 &7302243986218155159
 Rigidbody2D:

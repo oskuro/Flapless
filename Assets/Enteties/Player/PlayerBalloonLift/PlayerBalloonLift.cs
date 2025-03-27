@@ -43,7 +43,6 @@ public class PlayerBalloonLift : MonoBehaviour
 
         _moveAction = InputSystem.actions.FindAction("Move");
         _jumpAction = InputSystem.actions.FindAction("Jump");
-
     }
 
     void Update()
