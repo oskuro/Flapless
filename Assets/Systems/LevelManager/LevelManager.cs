@@ -47,6 +47,11 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(ShowRestart());
     }
 
+    public void Paus()
+    {
+
+    }
+    
     IEnumerator ShowRestart()
     {
         ChangeTimeScale(_slowmoTimeScale);

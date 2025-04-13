@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class ChunkManager : MonoBehaviour
 {
-    [SerializeField] GameObject _starterChunk;
-    [SerializeField] GameObject[] _levelChunks;
+    [SerializeField] GameObject _starterChunkPrefab;
+    [SerializeField] GameObject[] _levelChunksPrefabs;
+
+    [SerializeField] GameObject _levelChangerPrefab;
     List<GameObject> chunks = new List<GameObject>();
 
     float _chunkYSize = 32f;
     Vector2 _currentChunkPos = Vector2.zero;
 
     Camera mainCam;
+    private int _chunkLimit = 4;
 
     void Start()
     {
         mainCam = Camera.main;
 
-        SpawnChunk(_starterChunk);
-        SpawnChunk(_levelChunks[Random.Range(0, _levelChunks.Length)]);
+        SpawnChunk(_starterChunkPrefab);
+        SpawnChunk(_levelChunksPrefabs[Random.Range(0, _levelChunksPrefabs.Length)]);
     }
 
     void SpawnChunk(GameObject prefab) 
@@ -30,10 +33,18 @@ public class ChunkManager : MonoBehaviour
 
     void Update()
     {
-        if(mainCam.transform.position.y > _currentChunkPos.y - _chunkYSize)
+        var chunkAllowed = chunks.Count < _chunkLimit;
+        var nextChunkHeightReached = mainCam.transform.position.y > _currentChunkPos.y - _chunkYSize;
+
+        if(nextChunkHeightReached)
         {
-            Debug.Log($"Current Chunk Pos: {_currentChunkPos.y}");
-            SpawnChunk(_levelChunks[Random.Range(0, _levelChunks.Length)]);
+            if(chunkAllowed) 
+            {
+                SpawnChunk(_levelChunksPrefabs[Random.Range(0, _levelChunksPrefabs.Length)]);
+            } else 
+            {
+                
+            }
         }
     }
 }
