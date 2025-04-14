@@ -53,6 +53,9 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask _groundLayer;
     internal float MaxVelocityChange = 0.2f;
 
+    public Action OnDeath;
+
+
     void Awake() 
     {
         GroundedState = new GroundedState(this);
@@ -127,7 +130,7 @@ public class Player : MonoBehaviour
 
         hit = Physics2D.BoxCast(transform.position, _groundCheckSize, 0f, Vector2.down, _rayDistance, _balloonLayer);
         
-        if (hit.collider == null){return;}
+        if (hit.collider == null) {return;}
         
         Debug.Log("Balloon hit");
 
@@ -174,6 +177,7 @@ public class Player : MonoBehaviour
         if(!Debugging)
             return;
         // Is Grounded Check
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(transform.position + (Vector3.down * _rayDistance), (Vector3) _groundCheckSize);
         
         // Movement Check
@@ -184,16 +188,15 @@ public class Player : MonoBehaviour
     public void AddBalloon() 
     {
         BalloonCount++;
-        if(Debugging)
-            Debug.Log("Balloon Count: " + BalloonCount);
     }
 
     public void RemoveBalloon() 
     {
         BalloonCount--;
-        if(Debugging)
-            Debug.Log("Balloon Count: " + BalloonCount);
-        if(BalloonCount <= 0)
-            Debug.Log("Dead lol");
+        if (BalloonCount <= 0 && OnDeath != null)
+        {
+            OnDeath();
+            this.enabled = false;
+        }
     }
 }

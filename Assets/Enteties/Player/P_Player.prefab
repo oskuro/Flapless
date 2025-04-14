@@ -646,6 +646,7 @@ MonoBehaviour:
   balloonSlots:
   - {fileID: 8039059120170718445}
   - {fileID: 3446665088926612910}
+  _balloonPrefab: {fileID: 0}
 --- !u!1 &7234945826259222573
 GameObject:
   m_ObjectHideFlags: 0

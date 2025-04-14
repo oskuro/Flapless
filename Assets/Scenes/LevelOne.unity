@@ -1674,6 +1674,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 621686353}
     - target: {fileID: 2908530180574757131, guid: 6f2d57a2c2ce639449db03f5d37c5281, type: 3}
+      propertyPath: _playerPrefab
+      value: 
+      objectReference: {fileID: 7231796429894718382, guid: e48ea223abedf364baaed719a63c3b45, type: 3}
+    - target: {fileID: 2908530180574757131, guid: 6f2d57a2c2ce639449db03f5d37c5281, type: 3}
       propertyPath: _gameOverAnimatorController
       value: 
       objectReference: {fileID: 1364905406}
