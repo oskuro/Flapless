@@ -466,7 +466,7 @@ MonoBehaviour:
   _balloonLayer:
     serializedVersion: 2
     m_Bits: 128
-  Debugging: 0
+  Debugging: 1
   _playerRunSpeed: 4
   _jumpForce: 8
   GroundAcceleration: 70

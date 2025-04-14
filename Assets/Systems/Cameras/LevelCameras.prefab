@@ -178,7 +178,7 @@ Transform:
   m_GameObject: {fileID: 1183061777139156426}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 98.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -252,20 +252,20 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 7457393911638460214}
     m_ColliderPaths:
-    - - X: 125000000
-        Y: 1744000000
-      - X: -125000000
-        Y: 1744000000
-      - X: -125000000
-        Y: -983999936
-      - X: 125000000
-        Y: -983999936
+    - - X: 79500000
+        Y: 1230000000
+      - X: -79500000
+        Y: 1230000000
+      - X: -79500000
+        Y: -50000000
+      - X: 79500000
+        Y: -50000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 12.49997, y: -98.399994}
-      - {x: 12.49997, y: 174.40001}
-      - {x: -12.5, y: 174.39998}
-      - {x: -12.49997, y: -98.399994}
+    - - {x: 7.9499707, y: -5}
+      - {x: 7.9499707, y: 123}
+      - {x: -7.9500003, y: 122.99998}
+      - {x: -7.9499707, y: -5}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -304,7 +304,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 2
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 38}
+  m_Offset: {x: 0, y: 59}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -314,7 +314,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 25, y: 272.8}
+  m_Size: {x: 15.9, y: 128}
   m_EdgeRadius: 0
 --- !u!1 &1562536983625434401
 GameObject:
@@ -364,6 +364,7 @@ GameObject:
   - component: {fileID: 4544335195907732362}
   - component: {fileID: 2744570713687582339}
   - component: {fileID: 7540665123793982087}
+  - component: {fileID: 9132918813553044678}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -380,7 +381,7 @@ Transform:
   m_GameObject: {fileID: 3240605717107803063}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 136.09999, z: -10}
+  m_LocalPosition: {x: 0.00000087277226, y: 12.599999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -421,7 +422,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 17.6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -521,6 +522,18 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 11400000, guid: 048ac967148d5ee47b34709e1bcd3799, type: 2}
+--- !u!114 &9132918813553044678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3240605717107803063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb1c6f6ba055dc43971e7dc39b50812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3768903415352507292
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +562,7 @@ Transform:
   m_GameObject: {fileID: 3768903415352507292}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.8798833, y: 3.8709009, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -580,7 +593,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 10
+    OrthographicSize: 17.6
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

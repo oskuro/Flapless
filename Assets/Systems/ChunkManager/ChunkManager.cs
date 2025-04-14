@@ -10,7 +10,7 @@ public class ChunkManager : MonoBehaviour
     [SerializeField] GameObject _levelChangerPrefab;
     List<GameObject> chunks = new List<GameObject>();
 
-    float _chunkYSize = 32f;
+    float _chunkYSize = 40f;
     Vector2 _currentChunkPos = Vector2.zero;
 
     Camera mainCam;
