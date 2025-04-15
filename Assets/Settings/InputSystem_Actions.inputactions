@@ -81,7 +81,7 @@
                     "name": "Sprint",
                     "type": "Button",
                     "id": "641cd816-40e6-41b4-8c3d-04687c349290",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -359,6 +359,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60eb780c-63c2-47b6-af42-b06fd4017689",
+                    "path": "<Touchscreen>/touch0/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Touch",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
