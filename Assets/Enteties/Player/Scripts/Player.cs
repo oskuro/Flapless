@@ -84,7 +84,9 @@ public class Player : MonoBehaviour
         {
             var playerHeight = collider.bounds.max.y;
             var offset = collider.offset.y;
-            _rayDistance = playerHeight / 2f - offset;
+            _rayDistance = -playerHeight / 2f - offset;
+            if(Debugging)
+                Debug.Log($"Ray distance: {_rayDistance}");
         }
 
         // Set our Rigidbody so that our states can move the player
@@ -125,20 +127,21 @@ public class Player : MonoBehaviour
 
     private void CheckGrounded()
     {
+        // This is the actual grounded check
         RaycastHit2D hit = Physics2D.BoxCast(transform.position, _groundCheckSize, 0f, Vector2.down, _rayDistance, _groundLayer);
         IsGrounded = hit.collider != null;
 
+        // This is checking for balloon beneath player
         hit = Physics2D.BoxCast(transform.position, _groundCheckSize, 0f, Vector2.down, _rayDistance, _balloonLayer);
         
+        // Return early
         if (hit.collider == null) {return;}
         
-        Debug.Log("Balloon hit");
-
-        
+        // Damage balloon
         if(!hit.collider.gameObject.TryGetComponent<Health>(out Health health)) { return; }
-        
-        Debug.Log("Balloon hit with health");
         health.TakeDamage(10);
+        Debug.Log("Balloon hit with health");
+        
 
     }
 
@@ -177,7 +180,7 @@ public class Player : MonoBehaviour
         if(!Debugging)
             return;
         // Is Grounded Check
-        Gizmos.color = Color.blue;
+        Gizmos.color = Color.white;
         Gizmos.DrawWireCube(transform.position + (Vector3.down * _rayDistance), (Vector3) _groundCheckSize);
         
         // Movement Check

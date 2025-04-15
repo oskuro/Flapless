@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8442117051523799628}
   - component: {fileID: 8307480070854139463}
   - component: {fileID: 4584152585505397176}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1769,7 +1769,7 @@ GameObject:
   - component: {fileID: 2789904021734808530}
   - component: {fileID: 5367285660843115212}
   - component: {fileID: 1000276444635646213}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Chunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
