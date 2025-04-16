@@ -466,7 +466,7 @@ MonoBehaviour:
   _balloonLayer:
     serializedVersion: 2
     m_Bits: 128
-  Debugging: 1
+  Debugging: 0
   _playerRunSpeed: 4
   _jumpForce: 8
   GroundAcceleration: 70
@@ -478,7 +478,7 @@ MonoBehaviour:
   FlyingDeceleration: 20
   FlyingDrag: 0.2
   VerticalVelocityClamp: 3
-  MoveCheck: {x: 0.4, y: 1.3}
+  MoveCheck: {x: 0.4, y: 1}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -646,7 +646,7 @@ MonoBehaviour:
   balloonSlots:
   - {fileID: 8039059120170718445}
   - {fileID: 3446665088926612910}
-  _balloonPrefab: {fileID: 0}
+  _balloonPrefab: {fileID: 4251499772726872787, guid: 5e3e5dcb8f377e04a90c861d2f9f13c2, type: 3}
 --- !u!1 &7234945826259222573
 GameObject:
   m_ObjectHideFlags: 0

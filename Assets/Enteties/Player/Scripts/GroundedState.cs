@@ -14,6 +14,7 @@ public class GroundedState : PlayerState
     {
          if (!player.IsGrounded && player.BalloonCount > 0) 
         {
+            Debug.Log("Changing state to flying");
             player.ChangeState(player.FlyingState);
         }
     }

@@ -178,7 +178,7 @@ Transform:
   m_GameObject: {fileID: 1183061777139156426}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -252,20 +252,20 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 7457393911638460214}
     m_ColliderPaths:
-    - - X: 79500000
+    - - X: 75000000
         Y: 1230000000
-      - X: -79500000
+      - X: -75000000
         Y: 1230000000
-      - X: -79500000
+      - X: -75000000
         Y: -50000000
-      - X: 79500000
+      - X: 75000000
         Y: -50000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 7.9499707, y: -5}
-      - {x: 7.9499707, y: 123}
-      - {x: -7.9500003, y: 122.99998}
-      - {x: -7.9499707, y: -5}
+    - - {x: 7.4999704, y: -5}
+      - {x: 7.4999704, y: 123}
+      - {x: -7.5, y: 122.99998}
+      - {x: -7.4999704, y: -5}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -314,7 +314,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 15.9, y: 128}
+  m_Size: {x: 15, y: 128}
   m_EdgeRadius: 0
 --- !u!1 &1562536983625434401
 GameObject:
@@ -381,7 +381,7 @@ Transform:
   m_GameObject: {fileID: 3240605717107803063}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000087277226, y: 12.599999, z: -10}
+  m_LocalPosition: {x: -0.0000008444911, y: 12.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -422,7 +422,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 17.6
+  orthographic size: 13
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -593,7 +593,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 17.6
+    OrthographicSize: 13
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

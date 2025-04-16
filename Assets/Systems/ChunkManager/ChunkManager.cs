@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class ChunkManager : MonoBehaviour
@@ -10,7 +9,7 @@ public class ChunkManager : MonoBehaviour
     [SerializeField] GameObject _levelChangerPrefab;
     List<GameObject> chunks = new List<GameObject>();
 
-    float _chunkYSize = 40f;
+    float _chunkYSize = 36;
     Vector2 _currentChunkPos = Vector2.zero;
 
     Camera mainCam;

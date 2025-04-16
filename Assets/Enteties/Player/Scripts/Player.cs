@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
     public PlayerState _currentState;
     public PlayerState GroundedState { get; private set; }
     public PlayerState FlyingState { get; private set; }
+    public int MaxBalloons { get; set; } = 2;
+
     InputAction _moveAction;
     InputAction _jumpAction;
     private SpriteRenderer _spriteRenderer;
@@ -79,12 +81,13 @@ public class Player : MonoBehaviour
         _jumpAction = InputSystem.actions.FindAction("Jump");
 
         // calculate player height
-        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        Collider2D collider = GetComponent<CapsuleCollider2D>();
         if (collider != null)
         {
             var playerHeight = collider.bounds.max.y;
             var offset = collider.offset.y;
-            _rayDistance = -playerHeight / 2f - offset;
+            _rayDistance = (playerHeight / 2f - offset) * transform.localScale.y;
+
             if(Debugging)
                 Debug.Log($"Ray distance: {_rayDistance}");
         }
@@ -111,8 +114,6 @@ public class Player : MonoBehaviour
 
         _currentState?.Update();
     }
-
-    
 
     private void GetPlayerInput()
     {
@@ -141,8 +142,6 @@ public class Player : MonoBehaviour
         if(!hit.collider.gameObject.TryGetComponent<Health>(out Health health)) { return; }
         health.TakeDamage(10);
         Debug.Log("Balloon hit with health");
-        
-
     }
 
     private void FixedUpdate() {
@@ -180,7 +179,7 @@ public class Player : MonoBehaviour
         if(!Debugging)
             return;
         // Is Grounded Check
-        Gizmos.color = Color.white;
+        Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(transform.position + (Vector3.down * _rayDistance), (Vector3) _groundCheckSize);
         
         // Movement Check
@@ -191,6 +190,7 @@ public class Player : MonoBehaviour
     public void AddBalloon() 
     {
         BalloonCount++;
+        Debug.Log($"Balloons: {BalloonCount}");
     }
 
     public void RemoveBalloon() 

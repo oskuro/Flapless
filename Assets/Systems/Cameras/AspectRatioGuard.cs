@@ -4,7 +4,7 @@ public class AspectRatioGuard : MonoBehaviour
 {
     void Start()
     {
-        float targetAspect = 9f / 20f;
+        float targetAspect = 9f / 16f;
         float windowAspect = (float)Screen.width / Screen.height;
         float scaleHeight = windowAspect / targetAspect;
 

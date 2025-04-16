@@ -225,7 +225,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 17
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -439,6 +439,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroundChunk
       objectReference: {fileID: 0}
+    - target: {fileID: 4458822515628907302, guid: 26f13f46a5c64ece196b71530248d971, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4470662258005740576, guid: 26f13f46a5c64ece196b71530248d971, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -498,7 +502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2789904021734808530, guid: 0fa65e3e505eb35e98fc55cf61162798, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 40
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 2789904021734808530, guid: 0fa65e3e505eb35e98fc55cf61162798, type: 3}
       propertyPath: m_LocalPosition.z
@@ -536,11 +540,190 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chunk
       objectReference: {fileID: 0}
+    - target: {fileID: 7045582962348968976, guid: 0fa65e3e505eb35e98fc55cf61162798, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fa65e3e505eb35e98fc55cf61162798, type: 3}
+--- !u!1001 &3549125982451816116
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 197946993232403112, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 197946993232403112, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 197946993232403112, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 197946993232403112, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 197946993232403112, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 197946993232403112, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 197946993232403112, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 197946993232403112, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 197946993232403112, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 197946993232403112, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594927638352065715, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_Name
+      value: GroundChunkVinesWFrame
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+--- !u!1001 &4311795958354838224
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2226427567060864725, guid: 8f77b109809950870be271c51327a5d5, type: 3}
+      propertyPath: m_Name
+      value: ChunkVinesWFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289359909116839512, guid: 8f77b109809950870be271c51327a5d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 51.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289359909116839512, guid: 8f77b109809950870be271c51327a5d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289359909116839512, guid: 8f77b109809950870be271c51327a5d5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289359909116839512, guid: 8f77b109809950870be271c51327a5d5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289359909116839512, guid: 8f77b109809950870be271c51327a5d5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289359909116839512, guid: 8f77b109809950870be271c51327a5d5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289359909116839512, guid: 8f77b109809950870be271c51327a5d5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289359909116839512, guid: 8f77b109809950870be271c51327a5d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289359909116839512, guid: 8f77b109809950870be271c51327a5d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289359909116839512, guid: 8f77b109809950870be271c51327a5d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f77b109809950870be271c51327a5d5, type: 3}
+--- !u!1001 &8450215972643235819
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2796770538882847106, guid: 2d68ae91c96a692729599e689817de61, type: 3}
+      propertyPath: m_Name
+      value: GroundChunkVine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2796770538882847106, guid: 2d68ae91c96a692729599e689817de61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237034064264080250, guid: 2d68ae91c96a692729599e689817de61, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237034064264080250, guid: 2d68ae91c96a692729599e689817de61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237034064264080250, guid: 2d68ae91c96a692729599e689817de61, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237034064264080250, guid: 2d68ae91c96a692729599e689817de61, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237034064264080250, guid: 2d68ae91c96a692729599e689817de61, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237034064264080250, guid: 2d68ae91c96a692729599e689817de61, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237034064264080250, guid: 2d68ae91c96a692729599e689817de61, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237034064264080250, guid: 2d68ae91c96a692729599e689817de61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237034064264080250, guid: 2d68ae91c96a692729599e689817de61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237034064264080250, guid: 2d68ae91c96a692729599e689817de61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2d68ae91c96a692729599e689817de61, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -550,3 +733,6 @@ SceneRoots:
   - {fileID: 1149950449}
   - {fileID: 429309264777537406}
   - {fileID: 297043066906971820}
+  - {fileID: 8450215972643235819}
+  - {fileID: 3549125982451816116}
+  - {fileID: 4311795958354838224}
