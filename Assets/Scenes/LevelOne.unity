@@ -344,43 +344,59 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3147555140539338355, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
-      value: 7.4999704
+      value: 7.9999704
       objectReference: {fileID: 0}
     - target: {fileID: 3147555140539338355, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[1].x
-      value: 7.4999704
+      value: 7.9999704
       objectReference: {fileID: 0}
     - target: {fileID: 3147555140539338355, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[2].x
-      value: -7.5
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 3147555140539338355, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[3].x
-      value: -7.4999704
+      value: -7.9999704
       objectReference: {fileID: 0}
     - target: {fileID: 3147555140539338355, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[0].X
-      value: 75000000
+      value: 80000000
       objectReference: {fileID: 0}
     - target: {fileID: 3147555140539338355, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[1].X
-      value: -75000000
+      value: -80000000
       objectReference: {fileID: 0}
     - target: {fileID: 3147555140539338355, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[2].X
-      value: -75000000
+      value: -80000000
       objectReference: {fileID: 0}
     - target: {fileID: 3147555140539338355, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[3].X
-      value: 75000000
+      value: 80000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5150484714654228910, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627685332574469553, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
+      propertyPath: orthographic size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271734036221126342, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
+      propertyPath: Lens.OrthographicSize
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457393911638460214, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
+      propertyPath: m_Size.x
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8543706064326483413, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000062816966
+      value: -0.0000008444911
       objectReference: {fileID: 0}
     - target: {fileID: 8543706064326483413, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 63.5
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1434,7 +1450,7 @@ PrefabInstance:
     - target: {fileID: 8061153916095204571, guid: 446c3285e250c6b72ae33bcf49ba3a6e, type: 3}
       propertyPath: _starterChunkPrefab
       value: 
-      objectReference: {fileID: 5594927638352065715, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      objectReference: {fileID: 4458822515628907302, guid: 26f13f46a5c64ece196b71530248d971, type: 3}
     - target: {fileID: 8061153916095204571, guid: 446c3285e250c6b72ae33bcf49ba3a6e, type: 3}
       propertyPath: _levelChunks.Array.size
       value: 2
@@ -1450,7 +1466,7 @@ PrefabInstance:
     - target: {fileID: 8061153916095204571, guid: 446c3285e250c6b72ae33bcf49ba3a6e, type: 3}
       propertyPath: '_levelChunksPrefabs.Array.data[0]'
       value: 
-      objectReference: {fileID: 2226427567060864725, guid: 8f77b109809950870be271c51327a5d5, type: 3}
+      objectReference: {fileID: 7045582962348968976, guid: 0fa65e3e505eb35e98fc55cf61162798, type: 3}
     - target: {fileID: 8061153916095204571, guid: 446c3285e250c6b72ae33bcf49ba3a6e, type: 3}
       propertyPath: '_levelChunksPrefabs.Array.data[1]'
       value: 

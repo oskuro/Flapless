@@ -427,6 +427,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1716372755
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4555154041987549407, guid: b6bf757b0f5235950a5b08836ac60542, type: 3}
+      propertyPath: m_Name
+      value: PatrollingEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590151262903129215, guid: b6bf757b0f5235950a5b08836ac60542, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.7391208
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590151262903129215, guid: b6bf757b0f5235950a5b08836ac60542, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590151262903129215, guid: b6bf757b0f5235950a5b08836ac60542, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590151262903129215, guid: b6bf757b0f5235950a5b08836ac60542, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590151262903129215, guid: b6bf757b0f5235950a5b08836ac60542, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590151262903129215, guid: b6bf757b0f5235950a5b08836ac60542, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590151262903129215, guid: b6bf757b0f5235950a5b08836ac60542, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590151262903129215, guid: b6bf757b0f5235950a5b08836ac60542, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590151262903129215, guid: b6bf757b0f5235950a5b08836ac60542, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590151262903129215, guid: b6bf757b0f5235950a5b08836ac60542, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6bf757b0f5235950a5b08836ac60542, type: 3}
 --- !u!1001 &297043066906971820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -438,10 +495,6 @@ PrefabInstance:
     - target: {fileID: 4458822515628907302, guid: 26f13f46a5c64ece196b71530248d971, type: 3}
       propertyPath: m_Name
       value: GroundChunk
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458822515628907302, guid: 26f13f46a5c64ece196b71530248d971, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4470662258005740576, guid: 26f13f46a5c64ece196b71530248d971, type: 3}
       propertyPath: m_LocalPosition.x
@@ -540,10 +593,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chunk
       objectReference: {fileID: 0}
-    - target: {fileID: 7045582962348968976, guid: 0fa65e3e505eb35e98fc55cf61162798, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -597,9 +646,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2699339189823018489, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699339189823018489, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058718459872861770, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[1].Array.data[0].x
+      value: -7.6865225
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058718459872861770, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[1].Array.data[0].y
+      value: -1.3314408
+      objectReference: {fileID: 0}
     - target: {fileID: 5594927638352065715, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
       propertyPath: m_Name
       value: GroundChunkVinesWFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594927638352065715, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712609033859086458, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712609033859086458, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 5752169800216907779, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5752169800216907779, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 8263071356924810420, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8263071356924810420, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8532284123101235822, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.5003188
+      objectReference: {fileID: 0}
+    - target: {fileID: 8532284123101235822, guid: d36db79138c84efa4a055e20c96e6619, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.597272
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -617,6 +718,10 @@ PrefabInstance:
     - target: {fileID: 2226427567060864725, guid: 8f77b109809950870be271c51327a5d5, type: 3}
       propertyPath: m_Name
       value: ChunkVinesWFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2226427567060864725, guid: 8f77b109809950870be271c51327a5d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8289359909116839512, guid: 8f77b109809950870be271c51327a5d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -733,6 +838,7 @@ SceneRoots:
   - {fileID: 1149950449}
   - {fileID: 429309264777537406}
   - {fileID: 297043066906971820}
+  - {fileID: 1716372755}
   - {fileID: 8450215972643235819}
   - {fileID: 4311795958354838224}
   - {fileID: 3549125982451816116}

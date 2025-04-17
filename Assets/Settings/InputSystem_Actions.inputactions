@@ -148,7 +148,7 @@
                     "id": "6d3f0df4-c6bf-4f5d-8510-f4aae435e931",
                     "path": "1DAxis",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Normalize(min=-1,max=1)",
                     "groups": "",
                     "action": "Move",
                     "isComposite": true,
