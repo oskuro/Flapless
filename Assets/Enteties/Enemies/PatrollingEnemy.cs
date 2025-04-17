@@ -3,11 +3,12 @@ using UnityEngine.Tilemaps;
 
 public class PatrollingEnemy : Enemy
 {
+
     [SerializeField] private float _speed;
     [SerializeField] private int _damage;
-    [SerializeField] private Tilemap _groundTilemap;
-    [SerializeField] private int _patrolDistance = 10;
+    [SerializeField] private LayerMask _groundMask;
 
+    [SerializeField] private Tilemap _tilemap;
     private Vector3 _startPos;
     private Vector3 _patrolPos;
     private Vector3 _targetPos;
@@ -15,45 +16,45 @@ public class PatrollingEnemy : Enemy
     void Start()
     {
         _startPos = transform.position;
-        _patrolPos = _startPos;
-
-        // Search for ground tiles to the right up to _patrolDistance tiles
-        for (int i = 1; i <= _patrolDistance; i++)
+        var hit = Physics2D.Raycast(_startPos, Vector2.right, _groundMask);
+        if(hit)
         {
-            Vector3 checkPos = _startPos + Vector3.right * i;
-            Vector3Int tilePos = _groundTilemap.WorldToCell(checkPos);
+            _tilemap = hit.collider.gameObject.GetComponent<Tilemap>();
+            var gridPos = _tilemap.WorldToCell(transform.position);
+            var newPos = gridPos + new Vector3Int(5, 0, 0);
 
-            if (_groundTilemap.GetTile(tilePos) == null)
-            {
-                // Step back to last tile that was ground
-                _patrolPos = _startPos + Vector3.right * (i - 1);
-                break;
-            }
+            var tile = _tilemap.GetTile(newPos);
 
-            // If we reach max distance and still on ground, patrol to that edge
-            if (i == _patrolDistance)
-                _patrolPos = checkPos;
-        }
-
-        _targetPos = _patrolPos;
+            if(tile == null)
+                _patrolPos = _tilemap.CellToWorld(newPos);
+            // _patrolPos = hit.point - Vector2.right;
+            _targetPos = _patrolPos;
+        }    
     }
 
     void Update()
     {
         var distanceToTarget = (transform.position - _targetPos).magnitude;
-        if (distanceToTarget < 0.1f)
+        if(distanceToTarget < 0.1f)
         {
-            _targetPos = (_targetPos == _patrolPos) ? _startPos : _patrolPos;
+            if(_targetPos == _patrolPos)
+                _targetPos = _startPos;
+            else
+                _targetPos = _patrolPos;
         }
 
         var targetDirection = (_targetPos - transform.position).normalized;
+
         transform.Translate(_speed * Time.deltaTime * targetDirection);
+        //OnDeath(this);
     }
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         var health = collision.gameObject.GetComponent<Health>();
-        if (health)
+
+        if(health)
             health.TakeDamage(_damage);
     }
 }

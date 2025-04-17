@@ -228,6 +228,7 @@ MonoBehaviour:
   _groundMask:
     serializedVersion: 2
     m_Bits: 8
+  _tilemap: {fileID: 0}
 --- !u!58 &2976197608629686586
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -244,7 +245,7 @@ CircleCollider2D:
     m_Bits: 384
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 639
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
