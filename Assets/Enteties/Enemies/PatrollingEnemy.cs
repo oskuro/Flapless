@@ -13,6 +13,8 @@ public class PatrollingEnemy : Enemy
     private Vector3 _patrolPos;
     private Vector3 _targetPos;
 
+    private int _range = 10;
+
     void Start()
     {
         _startPos = transform.position;
@@ -21,12 +23,17 @@ public class PatrollingEnemy : Enemy
         {
             _tilemap = hit.collider.gameObject.GetComponent<Tilemap>();
             var gridPos = _tilemap.WorldToCell(transform.position);
-            var newPos = gridPos + new Vector3Int(5, 0, 0);
-
-            var tile = _tilemap.GetTile(newPos);
+            
+            TileBase tile = null;
+            Vector3Int testPos = new Vector3Int(0,0,0);
+            while(tile == null && testPos.x < _range)
+            {
+                tile = _tilemap.GetTile(gridPos + testPos);
+                testPos.x++;
+            } 
 
             if(tile == null)
-                _patrolPos = _tilemap.CellToWorld(newPos);
+                _patrolPos = _tilemap.CellToWorld(gridPos + testPos);
             // _patrolPos = hit.point - Vector2.right;
             _targetPos = _patrolPos;
         }    
