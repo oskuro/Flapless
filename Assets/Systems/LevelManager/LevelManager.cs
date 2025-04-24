@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,18 +9,24 @@ public class LevelManager : MonoBehaviour
     private const float FIXED_TIMESCALE = 0.02f;
     [SerializeField] Transform _checkpoint;
     [SerializeField] GameObject _playerPrefab;
-    PlayerBalloonLift _player;
+    Player _player;
 
     [SerializeField] float _waitBeforeShowScore = 0.35f;
     [SerializeField] float _slowmoTimeScale = 0.25f;
 
     [SerializeField] Animator _gameOverAnimatorController;
-
+    CinemachineCamera _followCam;
     int _hiddenBool;
 
     void Start()
     {
         SpawnPlayer();
+        var g = GameObject.Find("CM_Follow");
+        if(g != null)
+            _followCam = g.GetComponent<CinemachineCamera>();
+        
+        if(_followCam != null)
+            _followCam.Follow = _player.transform;
 
         _hiddenBool = Animator.StringToHash("Visible");
     }
@@ -30,7 +37,7 @@ public class LevelManager : MonoBehaviour
         if (_checkpoint) { spawnPos = _checkpoint.position; }
 
         var playerObject = Instantiate(_playerPrefab, spawnPos, Quaternion.identity);
-        _player = playerObject.GetComponent<PlayerBalloonLift>();
+        _player = playerObject.GetComponent<Player>();
 
         _player.OnDeath += PlayerDied;
     }
@@ -40,6 +47,11 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(ShowRestart());
     }
 
+    public void Paus()
+    {
+
+    }
+    
     IEnumerator ShowRestart()
     {
         ChangeTimeScale(_slowmoTimeScale);

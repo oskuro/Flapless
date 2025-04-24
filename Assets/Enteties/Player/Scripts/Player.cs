@@ -45,6 +45,8 @@ public class Player : MonoBehaviour
     public PlayerState _currentState;
     public PlayerState GroundedState { get; private set; }
     public PlayerState FlyingState { get; private set; }
+    public int MaxBalloons { get; set; } = 2;
+
     InputAction _moveAction;
     InputAction _jumpAction;
     private SpriteRenderer _spriteRenderer;
@@ -53,6 +55,9 @@ public class Player : MonoBehaviour
     public Vector2 MoveCheck;
     [SerializeField] LayerMask _groundLayer;
     internal float MaxVelocityChange = 0.2f;
+
+    public Action OnDeath;
+
 
     void Awake() 
     {
@@ -77,12 +82,15 @@ public class Player : MonoBehaviour
         _jumpAction = InputSystem.actions.FindAction("Jump");
 
         // calculate player height
-        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        Collider2D collider = GetComponent<CapsuleCollider2D>();
         if (collider != null)
         {
             var playerHeight = collider.bounds.max.y;
             var offset = collider.offset.y;
-            _rayDistance = playerHeight / 2f - offset;
+            _rayDistance = (playerHeight / 2f - offset) * transform.localScale.y;
+
+            if(Debugging)
+                Debug.Log($"Ray distance: {_rayDistance}");
         }
 
         // Set our Rigidbody so that our states can move the player
@@ -108,8 +116,6 @@ public class Player : MonoBehaviour
         _currentState?.Update();
     }
 
-    
-
     private void GetPlayerInput()
     {
         // Get player input values
@@ -123,21 +129,20 @@ public class Player : MonoBehaviour
 
     private void CheckGrounded()
     {
+        // This is the actual grounded check
         RaycastHit2D hit = Physics2D.BoxCast(transform.position, _groundCheckSize, 0f, Vector2.down, _rayDistance, _groundLayer);
         IsGrounded = hit.collider != null;
 
+        // This is checking for balloon beneath player
         hit = Physics2D.BoxCast(transform.position, _groundCheckSize, 0f, Vector2.down, _rayDistance, _balloonLayer);
         
-        if (hit.collider == null){return;}
+        // Return early
+        if (hit.collider == null) {return;}
         
-        Debug.Log("Balloon hit");
-
-        
+        // Damage balloon
         if(!hit.collider.gameObject.TryGetComponent<Health>(out Health health)) { return; }
-        
-        Debug.Log("Balloon hit with health");
         health.TakeDamage(10);
-
+        Debug.Log("Balloon hit with health");
     }
 
     private void FixedUpdate() {
@@ -175,6 +180,7 @@ public class Player : MonoBehaviour
         if(!Debugging)
             return;
         // Is Grounded Check
+        Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(transform.position + (Vector3.down * _rayDistance), (Vector3) _groundCheckSize);
         
         // Movement Check
@@ -185,16 +191,16 @@ public class Player : MonoBehaviour
     public void AddBalloon() 
     {
         BalloonCount++;
-        if(Debugging)
-            Debug.Log("Balloon Count: " + BalloonCount);
+        Debug.Log($"Balloons: {BalloonCount}");
     }
 
     public void RemoveBalloon() 
     {
         BalloonCount--;
-        if(Debugging)
-            Debug.Log("Balloon Count: " + BalloonCount);
-        if(BalloonCount <= 0)
-            Debug.Log("Dead lol");
+        if (BalloonCount <= 0 && OnDeath != null)
+        {
+            OnDeath();
+            this.enabled = false;
+        }
     }
 }

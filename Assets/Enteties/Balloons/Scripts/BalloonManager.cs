@@ -13,7 +13,7 @@ public class BalloonManager : MonoBehaviour
     Player playerMovement;
     PlayerBalloonLift playerMove;
 
-    private bool _debug = false;
+    private bool _debug = true;
 
     public Action OnNoBalloonsLeft;
 
@@ -24,12 +24,13 @@ public class BalloonManager : MonoBehaviour
 
         rb2d = GetComponent<Rigidbody2D>();
         playerMovement = GetComponent<Player>();
-        if (playerMovement == null)
+        if (playerMovement)
         {
-            playerMove = GetComponent<PlayerBalloonLift>();
-            if (playerMove)
-                SpawnBalloons(playerMove.MaxBalloons);
+            SpawnBalloons(playerMovement.MaxBalloons);
         }
+        playerMove = GetComponent<PlayerBalloonLift>();
+        if (playerMove)
+            SpawnBalloons(playerMove.MaxBalloons);
     }
 
     private void SpawnBalloons(int balloons)
