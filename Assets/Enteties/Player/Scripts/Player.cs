@@ -194,7 +194,6 @@ public class Player : MonoBehaviour
     public void AddBalloon() 
     {
         BalloonCount++;
-        Debug.Log($"Balloons: {BalloonCount}");
     }
 
     public void RemoveBalloon() 

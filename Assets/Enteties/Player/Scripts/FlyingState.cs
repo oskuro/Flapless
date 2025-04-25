@@ -13,7 +13,8 @@ public class FlyingState : PlayerState
     {
         if (player.IsGrounded)
         {
-            Debug.Log("Changing state to grounded");
+            if(player.Debugging)
+                Debug.Log("Changing state to grounded");
             player.ChangeState(player.GroundedState);
         }
     }

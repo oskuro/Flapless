@@ -13,7 +13,7 @@ public class BalloonManager : MonoBehaviour
     Player playerMovement;
     PlayerBalloonLift playerMove;
 
-    private bool _debug = true;
+    [SerializeField] private bool _debug = false;
 
     public Action OnNoBalloonsLeft;
 

@@ -18,7 +18,7 @@ public class BalloonMovement : MonoBehaviour
     
     [HideInInspector] public float TimeToLive = 10f; // Set by BalloonSlot
     [SerializeField] LayerMask _ignorePlayerMask;
-    [SerializeField] float _predictionTime = 0.3f;
+    //[SerializeField] float _predictionTime = 0.3f;
     Animator _animator;
 
     int _popHash;
