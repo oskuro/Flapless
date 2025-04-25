@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
             return;
             
         var randomIndex = Random.Range(0, enemyPrefabs.Length);
-        Instantiate(enemyPrefabs[randomIndex], transform.position, transform.rotation);
+        Instantiate(enemyPrefabs[randomIndex], transform.position, transform.rotation, transform.parent);
     }
 
     // Update is called once per frame

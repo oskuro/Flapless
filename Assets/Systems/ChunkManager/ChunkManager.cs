@@ -42,7 +42,7 @@ public class ChunkManager : MonoBehaviour
                 SpawnChunk(_levelChunksPrefabs[Random.Range(0, _levelChunksPrefabs.Length)]);
             } else 
             {
-                
+                SpawnChunk(_levelChangerPrefab);
             }
         }
     }
