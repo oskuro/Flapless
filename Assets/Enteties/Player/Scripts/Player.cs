@@ -104,6 +104,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         CheckGrounded();
+        CheckForEnemies();
         PlayerAnimator.SetBool("IsGrounded", IsGrounded);
         PlayerAnimator.SetBool("Jumping", !IsGrounded);
 
@@ -133,8 +134,11 @@ public class Player : MonoBehaviour
         RaycastHit2D hit = Physics2D.BoxCast(transform.position, _groundCheckSize, 0f, Vector2.down, _rayDistance, _groundLayer);
         IsGrounded = hit.collider != null;
 
+    }
+
+    void CheckForEnemies() {
         // This is checking for balloon beneath player
-        hit = Physics2D.BoxCast(transform.position, _groundCheckSize, 0f, Vector2.down, _rayDistance, _balloonLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, _groundCheckSize, 0f, Vector2.down, _rayDistance, _balloonLayer);
         
         // Return early
         if (hit.collider == null) {return;}
@@ -142,7 +146,6 @@ public class Player : MonoBehaviour
         // Damage balloon
         if(!hit.collider.gameObject.TryGetComponent<Health>(out Health health)) { return; }
         health.TakeDamage(10);
-        Debug.Log("Balloon hit with health");
     }
 
     private void FixedUpdate() {
