@@ -4,17 +4,18 @@ using UnityEngine.SceneManagement;
 public class LevelChanger : MonoBehaviour
 {
     [SerializeField] string _levelToChangeTo;
-    AsyncOperation levelLoading;
+    AsyncOperation _levelLoading;
 
 
     void Start()
     {
-        levelLoading = SceneManager.LoadSceneAsync(_levelToChangeTo);
-        levelLoading.allowSceneActivation = false;
+        _levelLoading = SceneManager.LoadSceneAsync(_levelToChangeTo);
+        _levelLoading.allowSceneActivation = false;
     }
     
     void OnTriggerEnter2D(Collider2D collider) 
     {
-        levelLoading.allowSceneActivation = true;
+        Debug.Log("on trigger enter: " + collider.gameObject.name);
+        _levelLoading.allowSceneActivation = true;
     }
 }

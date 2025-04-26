@@ -33,7 +33,7 @@ public class BalloonSlot : MonoBehaviour
             balloon = b.GetComponent<BalloonMovement>();
             rope = b.GetComponent<RopeManager>();
             health = b.GetComponent<Health>();
-            health.onDeath += BalloonPopped;
+            health.OnDeath += BalloonPopped;
             balloon.enabled = true;
             rope.enabled = true;
             balloon.Fly(transform);
@@ -47,7 +47,7 @@ public class BalloonSlot : MonoBehaviour
     {
         if (bloon == balloon.gameObject)
         {
-            health.onDeath -= BalloonPopped;
+            health.OnDeath -= BalloonPopped;
             onBalloonDeath?.Invoke(balloon.gameObject);
         }
     }

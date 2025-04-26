@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 5992948711582382296}
   - component: {fileID: 3877488215322755061}
   m_Layer: 7
-  m_Name: LargeBalloon
+  m_Name: P_LargeBalloon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   _ignorePlayerMask:
     serializedVersion: 2
     m_Bits: 256
+  _debug: 0
   _predictionTime: 0.3
 --- !u!114 &5351451787871032866
 MonoBehaviour:
@@ -138,7 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77655625575b2d54584c7698e796a02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  _maxHealth: 100
+  _debug: 1
 --- !u!58 &4810438034030611797
 CircleCollider2D:
   m_ObjectHideFlags: 0

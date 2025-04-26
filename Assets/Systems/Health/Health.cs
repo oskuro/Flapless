@@ -3,29 +3,34 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] int maxHealth = 100;
-    public int CurrentHealth { get { return currentHealth; } }
-    int currentHealth;
-    bool isDead = false;
-    public Action<GameObject> onDeath;
+    [SerializeField] int _maxHealth = 100;
+    public int CurrentHealth { get { return _currentHealth; } }
+    int _currentHealth;
+    bool _isDead = false;
+    public Action<GameObject> OnDeath;
+
+    [SerializeField] bool _debug = false;
 
     void Awake()
     {
-        currentHealth = maxHealth;
+        _currentHealth = _maxHealth;
     }
 
     public void TakeDamage(int damage)
     {
-        if (isDead)
+        if(_debug)
+            Debug.Log($"{gameObject.name} took {damage} damage");
+
+        if (_isDead)
             return;
 
-        currentHealth -= damage;
-        if (currentHealth <= 0)
+        _currentHealth -= damage;
+        if (_currentHealth <= 0)
         {
-            isDead = true;
+            _isDead = true;
             
-            if(onDeath != null)
-                onDeath?.Invoke(gameObject);
+            if(OnDeath != null)
+                OnDeath?.Invoke(gameObject);
             else
                 DestroySelf();
         }
@@ -33,17 +38,15 @@ public class Health : MonoBehaviour
 
     private void DestroySelf()
     {
-        // KAPOW
         Destroy(gameObject);
     }
 
     public void Heal(int amount)
     {
-        if (isDead)
+        if (_isDead)
             return;
 
-        currentHealth += amount;
-        if (currentHealth > maxHealth)
-            currentHealth = maxHealth;
+        _currentHealth += amount;
+        _currentHealth = Math.Clamp(_currentHealth, 0, _maxHealth);
     }
 }

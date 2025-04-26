@@ -18,7 +18,8 @@ public class BalloonMovement : MonoBehaviour
     
     [HideInInspector] public float TimeToLive = 10f; // Set by BalloonSlot
     [SerializeField] LayerMask _ignorePlayerMask;
-    //[SerializeField] float _predictionTime = 0.3f;
+    [SerializeField] bool _debug = false;
+    [SerializeField] float _predictionTime = 0.3f;
     Animator _animator;
 
     int _popHash;
@@ -46,7 +47,8 @@ public class BalloonMovement : MonoBehaviour
         else
         {
             FollowAnchor();
-            //PredictPosition(_rb, _predictionTime);
+            if(_debug)
+                PredictPosition(_rb, _predictionTime);
         }
     }
 
@@ -63,7 +65,7 @@ public class BalloonMovement : MonoBehaviour
 
     private void FollowAnchor()
     {
-        Vector3 direction = (_playerAnchor.position - transform.position);
+        Vector3 direction = _playerAnchor.position - transform.position;
         float distance = direction.magnitude;
         direction.Normalize();
 
@@ -95,6 +97,9 @@ public class BalloonMovement : MonoBehaviour
 
     void OnDrawGizmos() 
     {
+        if(!_debug)
+            return;
+            
         if(_extrapolatedPosition != Vector2.zero)
         {
             Gizmos.color = Color.green;
