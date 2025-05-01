@@ -9,8 +9,8 @@ public class AspectRatioGuard : MonoBehaviour
     void Start()
     {
         //SetAspectRation();
-        // AdjustCameraWidth();
-        StartCoroutine(AdjustNextFrame());
+        AdjustCameraWidth();
+        //StartCoroutine(AdjustNextFrame());
     }
 
     private static void SetAspectRation()

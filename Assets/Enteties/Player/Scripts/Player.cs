@@ -89,8 +89,7 @@ public class Player : MonoBehaviour
             var offset = collider.offset.y;
             _rayDistance = (playerHeight / 2f - offset) * transform.localScale.y;
 
-            if(Debugging)
-                Debug.Log($"Ray distance: {_rayDistance}");
+            if(Debugging) { Debug.Log($"Ray distance: {_rayDistance}"); }
         }
 
         // Set our Rigidbody so that our states can move the player
@@ -154,8 +153,8 @@ public class Player : MonoBehaviour
 
     public void ChangeState(PlayerState newState)
     {
-        if(Debugging)
-            Debug.Log("New state: " + newState);
+        if(Debugging) {Debug.Log("New state: " + newState);}
+            
         _currentState?.Exit();
         _currentState = newState;
         _currentState.Enter();
@@ -163,25 +162,19 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) 
     {  
-        if(Debugging) 
-        {
-            Debug.Log("Collision: " + collision.gameObject.name);
-        } 
+        if(Debugging) { Debug.Log("Collision: " + collision.gameObject.name); } 
     } 
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(Debugging) 
-        {
-            Debug.Log("Trigger: " + collider.gameObject.name);
-        }
+        if(Debugging) { Debug.Log("Trigger: " + collider.gameObject.name); }
 
     }
 
     void OnDrawGizmos() 
     {
-        if(!Debugging)
-            return;
+        if(!Debugging) {return;}
+            
         // Is Grounded Check
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(transform.position + (Vector3.down * _rayDistance), (Vector3) _groundCheckSize);
