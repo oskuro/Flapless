@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     int _currentHealth;
     bool _isDead = false;
     public Action<GameObject> OnDeath;
+    public Action<Health> OnDamaged;
+    public Action<Health> OnHealed;
 
     [SerializeField] bool _debug = false;
 
@@ -33,6 +35,9 @@ public class Health : MonoBehaviour
                 OnDeath?.Invoke(gameObject);
             else
                 DestroySelf();
+        } else 
+        {
+            OnDamaged?.Invoke(this);
         }
     }
 
@@ -48,5 +53,6 @@ public class Health : MonoBehaviour
 
         _currentHealth += amount;
         _currentHealth = Math.Clamp(_currentHealth, 0, _maxHealth);
+        OnHealed?.Invoke(this);
     }
 }
