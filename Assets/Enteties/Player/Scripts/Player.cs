@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
     internal float MaxVelocityChange = 0.2f;
 
     public Action OnDeath;
-
+    Health _health;
 
     void Awake() 
     {
@@ -81,6 +81,11 @@ public class Player : MonoBehaviour
         _moveAction = InputSystem.actions.FindAction("Move");
         _jumpAction = InputSystem.actions.FindAction("Jump");
 
+        _health = GetComponent<Health>();
+        if(_health != null)
+        {
+            _health.enabled = false;
+        }
         // calculate player height
         Collider2D collider = GetComponent<CapsuleCollider2D>();
         if (collider != null)
@@ -186,6 +191,10 @@ public class Player : MonoBehaviour
 
     public void AddBalloon() 
     {
+        if(BalloonCount == 0 && _health != null)
+        {
+            _health.enabled = false;
+        }
         BalloonCount++;
     }
 
@@ -196,6 +205,11 @@ public class Player : MonoBehaviour
         {
             OnDeath();
             this.enabled = false;
+        }
+
+        if (BalloonCount == 0 && _health != null) 
+        {
+            _health.enabled = true;
         }
     }
 }

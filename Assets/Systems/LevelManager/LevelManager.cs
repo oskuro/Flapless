@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Transform _checkpoint;
     [SerializeField] GameObject _playerPrefab;
     Player _player;
+    Health _playerHealth;
 
     [SerializeField] float _waitBeforeShowScore = 0.35f;
     [SerializeField] float _slowmoTimeScale = 0.25f;
@@ -38,11 +39,12 @@ public class LevelManager : MonoBehaviour
 
         var playerObject = Instantiate(_playerPrefab, spawnPos, Quaternion.identity);
         _player = playerObject.GetComponent<Player>();
-
-        _player.OnDeath += PlayerDied;
+        
+        _playerHealth = playerObject.GetComponent<Health>();
+        _playerHealth.OnDeath += PlayerDied;
     }
 
-    public void PlayerDied()
+    public void PlayerDied(GameObject player)
     {
         StartCoroutine(ShowRestart());
     }
@@ -76,7 +78,7 @@ public class LevelManager : MonoBehaviour
     {
         if (_player)
         {
-            _player.OnDeath -= PlayerDied;
+            _playerHealth.OnDeath -= PlayerDied;
         }
     }
 

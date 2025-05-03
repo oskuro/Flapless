@@ -42,7 +42,7 @@ public class FlyingState : PlayerState
             clampedVelocity.x *= 1 - drag * Time.fixedDeltaTime; 
         }
         else
-        {
+        {   
             float smoothFactor = 0.005f; 
             clampedVelocity.x = Mathf.Lerp(clampedVelocity.x, targetSpeed, smoothFactor);
             

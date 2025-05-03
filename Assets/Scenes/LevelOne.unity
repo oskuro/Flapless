@@ -397,6 +397,14 @@ PrefabInstance:
       propertyPath: Lens.OrthographicSize
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 7214892649361381380, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
+      propertyPath: Composition.DeadZone.Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214892649361381380, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
+      propertyPath: Composition.HardLimits.Size.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7457393911638460214, guid: 0d6ce5465f9dafa62a1c6354cb746dfd, type: 3}
       propertyPath: m_Size.x
       value: 16.1
