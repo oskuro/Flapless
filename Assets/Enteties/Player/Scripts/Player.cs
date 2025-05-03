@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public float PlayerRunSpeed => _playerRunSpeed;
     [SerializeField] private float _jumpForce = 4;
     public float JumpForce => _jumpForce;
-    public float GroundAcceleration = 70f;  
+    public float GroundAcceleration = 70f;
     public float GroundDeceleration = 50f;
     public Action Jumped; 
     float _rayDistance = 1f;
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
         {
             var playerHeight = collider.bounds.max.y;
             var offset = collider.offset.y;
-            _rayDistance = (playerHeight / 2f - offset) * transform.localScale.y;
+            _rayDistance = (playerHeight - offset) * transform.localScale.y * 1.2f;
 
             if(Debugging) { Debug.Log($"Ray distance: {_rayDistance}"); }
         }
@@ -177,7 +177,7 @@ public class Player : MonoBehaviour
             
         // Is Grounded Check
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireCube(transform.position + (Vector3.down * _rayDistance), (Vector3) _groundCheckSize);
+        Gizmos.DrawCube(transform.position + (Vector3.down * _rayDistance), (Vector3) _groundCheckSize);
         
         // Movement Check
         Gizmos.color = Color.red; 
@@ -192,7 +192,7 @@ public class Player : MonoBehaviour
     public void RemoveBalloon() 
     {
         BalloonCount--;
-        if (BalloonCount <= 0 && OnDeath != null)
+        if (BalloonCount < 0 && OnDeath != null)
         {
             OnDeath();
             this.enabled = false;

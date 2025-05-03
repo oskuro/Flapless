@@ -10,7 +10,7 @@
                     "type": "Value",
                     "id": "351f2ccd-1f9f-44bf-9bec-d62ac5c5f408",
                     "expectedControlType": "Axis",
-                    "processors": "",
+                    "processors": "Normalize(min=-1,max=1)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -148,7 +148,7 @@
                     "id": "6d3f0df4-c6bf-4f5d-8510-f4aae435e931",
                     "path": "1DAxis",
                     "interactions": "",
-                    "processors": "Normalize(min=-1,max=1)",
+                    "processors": "",
                     "groups": "",
                     "action": "Move",
                     "isComposite": true,
@@ -157,7 +157,7 @@
                 {
                     "name": "negative",
                     "id": "f96bd4a3-6da8-4573-96a0-6137d2b2143d",
-                    "path": "<Touchscreen>/primaryTouch/delta/left",
+                    "path": "<Touchscreen>/delta/left",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Touch",
@@ -168,7 +168,7 @@
                 {
                     "name": "positive",
                     "id": "0ee0a20e-daed-486b-955e-3e70438faf5a",
-                    "path": "<Touchscreen>/primaryTouch/delta/right",
+                    "path": "<Touchscreen>/delta/right",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Touch",

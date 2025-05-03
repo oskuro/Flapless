@@ -647,6 +647,7 @@ MonoBehaviour:
   - {fileID: 8039059120170718445}
   - {fileID: 3446665088926612910}
   _balloonPrefab: {fileID: 4251499772726872787, guid: 5e3e5dcb8f377e04a90c861d2f9f13c2, type: 3}
+  _debug: 0
 --- !u!1 &7234945826259222573
 GameObject:
   m_ObjectHideFlags: 0
