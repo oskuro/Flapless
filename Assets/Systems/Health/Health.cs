@@ -23,7 +23,7 @@ public class Health : MonoBehaviour
         if(_debug)
             Debug.Log($"{gameObject.name} took {damage} damage");
 
-        if (_isDead)
+        if (_isDead || !enabled)
             return;
 
         _currentHealth -= damage;
@@ -48,7 +48,7 @@ public class Health : MonoBehaviour
 
     public void Heal(int amount)
     {
-        if (_isDead)
+        if (_isDead || !enabled)
             return;
 
         _currentHealth += amount;

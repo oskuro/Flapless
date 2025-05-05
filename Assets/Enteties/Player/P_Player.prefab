@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 6691957775280228365}
   - component: {fileID: 1730789893365911079}
   - component: {fileID: 1150791463925902409}
-  - component: {fileID: 6131741014591377988}
+  - component: {fileID: 9003879025213500223}
   m_Layer: 8
   m_Name: P_Player
   m_TagString: Player
@@ -649,7 +649,7 @@ MonoBehaviour:
   - {fileID: 3446665088926612910}
   _balloonPrefab: {fileID: 4251499772726872787, guid: 5e3e5dcb8f377e04a90c861d2f9f13c2, type: 3}
   _debug: 0
---- !u!114 &6131741014591377988
+--- !u!114 &9003879025213500223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

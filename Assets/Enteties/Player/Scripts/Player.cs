@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -193,6 +194,8 @@ public class Player : MonoBehaviour
     {
         if(BalloonCount == 0 && _health != null)
         {
+            Debug.Log("Health disabled");
+            
             _health.enabled = false;
         }
         BalloonCount++;
@@ -209,6 +212,8 @@ public class Player : MonoBehaviour
 
         if (BalloonCount == 0 && _health != null) 
         {
+            Debug.Log("Health enabled");
+            
             _health.enabled = true;
         }
     }
