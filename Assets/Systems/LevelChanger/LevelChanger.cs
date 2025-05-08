@@ -6,6 +6,8 @@ public class LevelChanger : MonoBehaviour
     [SerializeField] string _levelToChangeTo;
     AsyncOperation _levelLoading;
 
+    [SerializeField] bool _debug;
+
 
     void Start()
     {
@@ -15,7 +17,7 @@ public class LevelChanger : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collider) 
     {
-        Debug.Log("on trigger enter: " + collider.gameObject.name);
+        //Debug.Log("on trigger enter: " + collider.gameObject.name);
         _levelLoading.allowSceneActivation = true;
     }
 }
