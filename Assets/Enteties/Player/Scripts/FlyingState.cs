@@ -11,7 +11,7 @@ public class FlyingState : PlayerState
 
     public override void Update()
     {
-        if (player.IsGrounded)
+        if (player.IsGrounded || player.BalloonCount < 1)
         {
             if(player.Debugging)
                 Debug.Log("Changing state to grounded");

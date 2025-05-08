@@ -35,6 +35,6 @@ public class Mine : Enemy
             yield return new WaitForEndOfFrame();
         }
 
-        Debug.Log("Boom!");
+        Debug.Log("Boom! " + _explosionRadius);
     }
 }

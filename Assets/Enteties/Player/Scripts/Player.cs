@@ -159,7 +159,7 @@ public class Player : MonoBehaviour
 
     public void ChangeState(PlayerState newState)
     {
-        if(Debugging) {Debug.Log("New state: " + newState);}
+        if(Debugging) { Debug.Log("New state: " + newState); }
             
         _currentState?.Exit();
         _currentState = newState;
@@ -194,7 +194,8 @@ public class Player : MonoBehaviour
     {
         if(BalloonCount == 0 && _health != null)
         {
-            Debug.Log("Health disabled");
+            
+            if(Debugging) { Debug.Log("Health disabled"); }
             
             _health.enabled = false;
         }
@@ -212,7 +213,7 @@ public class Player : MonoBehaviour
 
         if (BalloonCount == 0 && _health != null) 
         {
-            Debug.Log("Health enabled");
+            if (Debugging == true) { Debug.Log("Health enabled"); }
             
             _health.enabled = true;
         }
