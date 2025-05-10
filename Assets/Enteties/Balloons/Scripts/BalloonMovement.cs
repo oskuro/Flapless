@@ -7,7 +7,7 @@ public class BalloonMovement : MonoBehaviour
 {
     Transform _playerAnchor;
     //[SerializeField] float _minSpeed = .1f;
-    [SerializeField] float _maxSpeed = 3f;
+    [SerializeField] float _maxSpeed = 30f;
     [SerializeField] AnimationCurve _speedCurve;
     Vector3 _flyOffDir = Vector3.zero;
     Collider2D _collider;
@@ -66,7 +66,8 @@ public class BalloonMovement : MonoBehaviour
 
     private void FollowAnchor()
     {
-        transform.position = _playerAnchor.position;
+        //transform.position = _playerAnchor.position;
+        _rb.linearVelocity = (_playerAnchor.position - transform.position) * _maxSpeed  ; 
         // TODO: CLean this mess up- just testing balloons that are stuck to slots.
 
         Vector2 rotationDirection = (_playerTransform.position - transform.position);
@@ -75,21 +76,20 @@ public class BalloonMovement : MonoBehaviour
 
         transform.eulerAngles = new Vector3(0,0, signedAngle);
         
-        return;
+        
+        // Vector3 direction = _playerAnchor.position - transform.position;
+        // float distance = direction.magnitude;
+        // direction.Normalize();
 
-        Vector3 direction = _playerAnchor.position - transform.position;
-        float distance = direction.magnitude;
-        direction.Normalize();
+        // float stoppingDistance = 0.5f; // Distance at which we start damping
 
-        float stoppingDistance = 0.5f; // Distance at which we start damping
-
-        var futureDistance = Vector2.Distance(_extrapolatedPosition, _playerAnchor.position);
-        // Scale force based on distance
-        float speedFactor = Mathf.Clamp01(distance / stoppingDistance); 
-        speedFactor = _speedCurve.Evaluate(speedFactor);
-        //Debug.Log("Speed Factor: " + speedFactor);
-        _rb.linearVelocity = direction * _maxSpeed * speedFactor;
-        //_rb.AddForce(direction * forceStrength * speedFactor);
+        // var futureDistance = Vector2.Distance(_extrapolatedPosition, _playerAnchor.position);
+        // // Scale force based on distance
+        // float speedFactor = Mathf.Clamp01(distance / stoppingDistance); 
+        // speedFactor = _speedCurve.Evaluate(speedFactor);
+        // //Debug.Log("Speed Factor: " + speedFactor);
+        // _rb.linearVelocity = direction * _maxSpeed * speedFactor;
+        // //_rb.AddForce(direction * forceStrength * speedFactor);
 
     }
 

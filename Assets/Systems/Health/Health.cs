@@ -13,6 +13,9 @@ public class Health : MonoBehaviour
     public Action<GameObject> OnDeath;
     public Action<Health> OnDamaged;
     public Action<Health> OnHealed;
+    public Action<Vector2> OnKnockback;
+
+    Vector2 deathKnockback = default;
 
     [SerializeField] bool _debug = false;
 
@@ -21,7 +24,7 @@ public class Health : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector2 knockbackForce = default)
     {
         if(_debug)
             Debug.Log($"{gameObject.name} took {damage} damage");
@@ -41,6 +44,11 @@ public class Health : MonoBehaviour
         } else 
         {
             OnDamaged?.Invoke(this);
+        }
+
+        if(knockbackForce != default && OnKnockback != null)
+        {
+            OnKnockback(knockbackForce);
         }
     }
 
