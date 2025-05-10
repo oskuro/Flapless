@@ -17,6 +17,8 @@ public class BalloonManager : MonoBehaviour
 
     public Action OnNoBalloonsLeft;
 
+    bool _shiftBallons = false;
+
     void Start()
     {
         //balloonSlots.AddRange(transform.GetComponentsInChildren<BalloonSlot>());
@@ -31,6 +33,24 @@ public class BalloonManager : MonoBehaviour
         playerMove = GetComponent<PlayerBalloonLift>();
         if (playerMove)
             SpawnBalloons(playerMove.MaxBalloons);
+    }
+
+    void Update()
+    {
+        if(_shiftBallons) {
+            int numBalloons = balloonSlots.Count(slot => slot.Balloon != null);
+            float balloonSize = 0.55f;
+            var totalBalloonSpace = balloonSize * numBalloons;
+            for(int i=0; i < numBalloons; i++)
+            {
+                var newXOffset = (balloonSize * i) + balloonSize - totalBalloonSpace;
+                Debug.Log(newXOffset);
+                var bPos = balloonSlots[i].transform.position;
+                bPos.x = transform.position.x + newXOffset;
+                balloonSlots[i].transform.position = bPos;
+            }
+            _shiftBallons = false;
+        }
     }
 
     private void SpawnBalloons(int balloons)
@@ -64,13 +84,22 @@ public class BalloonManager : MonoBehaviour
                     playerMovement.RemoveBalloon();
                 if (playerMove)
                     playerMove.RemoveBalloon();
+
                 bs.FreeBalloon();
-                var freeSlots = balloonSlots.Where(bs => bs.IsSlotFree()).Count();
-                if (freeSlots == balloonSlots.Count)
-                    OnNoBalloonsLeft?.Invoke();
+            } else {
+                bs.TriggerInvunerable();
+            }
+
+            var freeSlots = balloonSlots.Where(bs => bs.IsSlotFree()).Count();
+            if (freeSlots == balloonSlots.Count) {
+                OnNoBalloonsLeft?.Invoke();
                 break;
             }
+            
         }
+        
+
+        _shiftBallons = true;
     }
 
     public void SpawnBalloon(GameObject bloon = null)
@@ -90,14 +119,16 @@ public class BalloonManager : MonoBehaviour
                 bs.AddBalloon(bloon);
                 if (playerMovement)
                     playerMovement.AddBalloon();
+                    bloon.transform.parent = playerMovement.gameObject.transform;
                 if (playerMove)
                 {
                     playerMove.AddBalloon();
+                    bloon.transform.parent = playerMove.gameObject.transform;
                 }
                 break;
             }
         }
-
+        _shiftBallons = true;
     }
 
     void OnDisable()

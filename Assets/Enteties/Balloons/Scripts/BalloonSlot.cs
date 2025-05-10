@@ -62,4 +62,9 @@ public class BalloonSlot : MonoBehaviour
         rope = null;
 
     }
+
+    internal void TriggerInvunerable()
+    {
+        health.SetInvulnerable(1.5f);
+    }
 }

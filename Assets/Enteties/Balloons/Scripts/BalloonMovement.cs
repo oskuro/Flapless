@@ -15,6 +15,8 @@ public class BalloonMovement : MonoBehaviour
 
     Vector2 _extrapolatedPosition = Vector2.zero;
 
+    Transform _playerTransform;
+
     
     [HideInInspector] public float TimeToLive = 10f; // Set by BalloonSlot
     [SerializeField] LayerMask _ignorePlayerMask;
@@ -31,7 +33,6 @@ public class BalloonMovement : MonoBehaviour
         _flyOffDir = new Vector3((float)Random.Range(-1, 2), 0, 0f);
         _animator = GetComponentInChildren<Animator>();
         _popHash = Animator.StringToHash("Pop");
-        
     }
 
     void Update()
@@ -65,6 +66,17 @@ public class BalloonMovement : MonoBehaviour
 
     private void FollowAnchor()
     {
+        transform.position = _playerAnchor.position;
+        // TODO: CLean this mess up- just testing balloons that are stuck to slots.
+
+        Vector2 rotationDirection = (_playerTransform.position - transform.position);
+        var angle = Mathf.Atan2(rotationDirection.y, rotationDirection.x);
+        float signedAngle = Vector2.SignedAngle(Vector2.down, rotationDirection);
+
+        transform.eulerAngles = new Vector3(0,0, signedAngle);
+        
+        return;
+
         Vector3 direction = _playerAnchor.position - transform.position;
         float distance = direction.magnitude;
         direction.Normalize();
@@ -93,6 +105,8 @@ public class BalloonMovement : MonoBehaviour
         gameObject.layer = 0;
         _collider.excludeLayers = _ignorePlayerMask;
         _playerAnchor = anchor;
+
+        _playerTransform = _playerAnchor.transform.parent.parent;
     }
 
     void OnDrawGizmos() 

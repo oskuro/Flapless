@@ -1,9 +1,12 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] int _maxHealth = 100;
+    private bool _isInvulnerable = false;
+
     public int CurrentHealth { get { return _currentHealth; } }
     int _currentHealth;
     bool _isDead = false;
@@ -23,7 +26,7 @@ public class Health : MonoBehaviour
         if(_debug)
             Debug.Log($"{gameObject.name} took {damage} damage");
 
-        if (_isDead || !enabled)
+        if (_isDead || !enabled || _isInvulnerable)
             return;
 
         _currentHealth -= damage;
@@ -54,5 +57,20 @@ public class Health : MonoBehaviour
         _currentHealth += amount;
         _currentHealth = Math.Clamp(_currentHealth, 0, _maxHealth);
         OnHealed?.Invoke(this);
+    }
+
+    public void SetInvulnerable(float duration)
+    {
+        Debug.Log(gameObject.name + " Invunerable");
+        if (!gameObject.activeInHierarchy) return;
+        StartCoroutine(InvulnerabilityCoroutine(duration));
+    }
+
+    private IEnumerator InvulnerabilityCoroutine(float duration)
+    {
+        _isInvulnerable = true;
+        yield return new WaitForSeconds(duration);
+        _isInvulnerable = false;
+        Debug.Log(gameObject.name + " vunerable");
     }
 }
