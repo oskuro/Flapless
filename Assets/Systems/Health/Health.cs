@@ -15,7 +15,7 @@ public class Health : MonoBehaviour
     public Action<Health> OnHealed;
     public Action<Vector2> OnKnockback;
 
-    Vector2 deathKnockback = default;
+    [SerializeField] Vector2 deathKnockback = default;
 
     [SerializeField] bool _debug = false;
 
@@ -54,6 +54,18 @@ public class Health : MonoBehaviour
 
     private void DestroySelf()
     {
+        if(deathKnockback != default)
+        {
+            var colliders = Physics2D.OverlapCircleAll(transform.position, 1f);
+
+            foreach(Collider2D col in colliders)
+            {
+                if(col.gameObject.TryGetComponent<Health>(out Health health))
+                {
+                    health.TakeDamage(0, deathKnockback);
+                }
+            }
+        }
         Destroy(gameObject);
     }
 

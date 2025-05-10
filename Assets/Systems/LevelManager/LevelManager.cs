@@ -41,7 +41,7 @@ public class LevelManager : MonoBehaviour
         _player = playerObject.GetComponent<Player>();
         
         _playerHealth = playerObject.GetComponent<Health>();
-        _playerHealth.OnDeath += PlayerDied;
+        _player.OnDeath += PlayerDied;
     }
 
     public void PlayerDied(GameObject player)
@@ -78,7 +78,7 @@ public class LevelManager : MonoBehaviour
     {
         if (_player)
         {
-            _playerHealth.OnDeath -= PlayerDied;
+            _player.OnDeath -= PlayerDied;
         }
     }
 

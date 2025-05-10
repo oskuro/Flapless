@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -57,7 +55,7 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask _groundLayer;
     internal float MaxVelocityChange = 0.2f;
 
-    public Action OnDeath;
+    public Action<GameObject> OnDeath;
     Health _health;
 
     void Awake() 
@@ -200,14 +198,17 @@ public class Player : MonoBehaviour
             _health.enabled = false;
         }
         BalloonCount++;
+        Debug.Log(BalloonCount);
+
     }
 
     public void RemoveBalloon() 
     {
         BalloonCount--;
-        if (BalloonCount < 0 && OnDeath != null)
+        Debug.Log(BalloonCount);
+        if (BalloonCount < 1 && OnDeath != null)
         {
-            OnDeath();
+            OnDeath(gameObject);
             this.enabled = false;
         }
 
@@ -215,7 +216,7 @@ public class Player : MonoBehaviour
         {
             if (Debugging == true) { Debug.Log("Health enabled"); }
             
-            _health.enabled = true;
+            //_health.enabled = true;
         }
     }
 }
