@@ -15,7 +15,7 @@ public class FlyingState : PlayerState
         {
             if(player.Debugging)
                 Debug.Log("Changing state to grounded");
-            player.ChangeState(player.GroundedState);
+            // player.ChangeState(player.GroundedState);
         }
     }
 
@@ -24,12 +24,10 @@ public class FlyingState : PlayerState
 
         // Vertical Movement
         Vector2 clampedVelocity = Rb2D.linearVelocity;
-        if (player.IsJumping)
-        {
-            Rb2D.AddForce(Vector2.up * player.FlyingForce, ForceMode2D.Force);
-            var vertClamp = player.VerticalVelocityClamp;
-            clampedVelocity.y = Mathf.Clamp(clampedVelocity.y, -vertClamp, vertClamp);
-        }
+        // if (player.IsJumping)
+        // {
+           
+        // }
 
         // Horizontal
         float targetSpeed = player.MoveInput * player.FlyingSpeed;
@@ -43,6 +41,10 @@ public class FlyingState : PlayerState
         }
         else
         {   
+            Rb2D.AddForce(Vector2.up * player.FlyingForce, ForceMode2D.Force);
+            var vertClamp = player.VerticalVelocityClamp;
+            clampedVelocity.y = Mathf.Clamp(clampedVelocity.y, -vertClamp, vertClamp);
+
             float smoothFactor = 0.005f; 
             clampedVelocity.x = Mathf.Lerp(clampedVelocity.x, targetSpeed, smoothFactor);
             

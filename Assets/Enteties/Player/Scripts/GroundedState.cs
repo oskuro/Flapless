@@ -7,7 +7,7 @@ public class GroundedState : PlayerState
 
     public override void Enter()
     {
-        player.Jumped += Jump;
+        // player.Jumped += Jump;
     }
 
     public override void Update()
@@ -40,12 +40,10 @@ public class GroundedState : PlayerState
             return; 
         }
 
-        // Direct velocity control for more precise movement
         float targetSpeed = player.MoveInput * player.PlayerRunSpeed;
         float speedDiff = targetSpeed - Rb2D.linearVelocity.x;
         float acceleration = (Mathf.Abs(targetSpeed) > 0.01f) ? player.GroundAcceleration : player.GroundDeceleration;
         
-        // Apply acceleration to reach target speed
         float movement = Mathf.Pow(Mathf.Abs(speedDiff) * acceleration, 0.96f) * Mathf.Sign(speedDiff);
         Rb2D.AddForce(movement * Vector2.right, ForceMode2D.Force);
 
@@ -56,11 +54,12 @@ public class GroundedState : PlayerState
 
         var runSpeed = Mathf.Clamp(Mathf.Abs(Rb2D.linearVelocity.x), 0f, 1f);
         player.PlayerAnimator.SetFloat("runspeed", runSpeed);
+        
     }
 
 
     public override void Exit()
     {
-         player.Jumped -= Jump;
+        //  player.Jumped -= Jump;
     }
 }
